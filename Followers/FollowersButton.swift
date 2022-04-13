@@ -11,7 +11,7 @@ class FollowersButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        //custom code begins here
+        
         configure()
     }
     
