@@ -13,6 +13,8 @@
 		BC8E281628071ABE00736DE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC8E281428071ABE00736DE3 /* LaunchScreen.storyboard */; };
 		BC8E281E280724C200736DE3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E281D280724C200736DE3 /* SearchViewController.swift */; };
 		BC8E28202807253D00736DE3 /* FavoritesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E281F2807253D00736DE3 /* FavoritesListViewController.swift */; };
+		BC8E28222807311B00736DE3 /* FollowersButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E28212807311B00736DE3 /* FollowersButton.swift */; };
+		BC8E2824280736A500736DE3 /* FollowersTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E2823280736A500736DE3 /* FollowersTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		BC8E281728071ABE00736DE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC8E281D280724C200736DE3 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BC8E281F2807253D00736DE3 /* FavoritesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListViewController.swift; sourceTree = "<group>"; };
+		BC8E28212807311B00736DE3 /* FollowersButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersButton.swift; sourceTree = "<group>"; };
+		BC8E2823280736A500736DE3 /* FollowersTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				BC8E280B28071ABB00736DE3 /* SceneDelegate.swift */,
 				BC8E281D280724C200736DE3 /* SearchViewController.swift */,
 				BC8E281F2807253D00736DE3 /* FavoritesListViewController.swift */,
+				BC8E28212807311B00736DE3 /* FollowersButton.swift */,
+				BC8E2823280736A500736DE3 /* FollowersTextField.swift */,
 				BC8E281228071ABE00736DE3 /* Assets.xcassets */,
 				BC8E281428071ABE00736DE3 /* LaunchScreen.storyboard */,
 				BC8E281728071ABE00736DE3 /* Info.plist */,
@@ -138,6 +144,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC8E281E280724C200736DE3 /* SearchViewController.swift in Sources */,
+				BC8E2824280736A500736DE3 /* FollowersTextField.swift in Sources */,
+				BC8E28222807311B00736DE3 /* FollowersButton.swift in Sources */,
 				BC8E280A28071ABB00736DE3 /* AppDelegate.swift in Sources */,
 				BC8E28202807253D00736DE3 /* FavoritesListViewController.swift in Sources */,
 				BC8E280C28071ABB00736DE3 /* SceneDelegate.swift in Sources */,
