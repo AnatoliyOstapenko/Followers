@@ -28,6 +28,7 @@ class SearchViewController: UIViewController {
     func setUIElements() {
         view.configureLogoImageView(view: view, imageView: logoImageView)
         view.configureUserTextField(view: view, textField: usernameTextField, imageView: logoImageView)
+        view.configureCallToActionButton(view: view, button: callToActionButton)
     }
     
     

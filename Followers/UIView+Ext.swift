@@ -33,4 +33,15 @@ extension UIView {
             textField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50)
         ])
     }
+    
+    func configureCallToActionButton(view: UIView, button: UIButton) {
+        view.addSubview(button)
+        
+        NSLayoutConstraint.activate([
+            button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
+            button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            button.heightAnchor.constraint(equalToConstant: 50)
+        ])
+    }
 }
