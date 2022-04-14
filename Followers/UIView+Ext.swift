@@ -16,10 +16,10 @@ extension UIView {
         imageView.image = UIImage(named: "logoPositive")
         
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
+            imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 90),
             imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 200),
-            imageView.widthAnchor.constraint(equalToConstant: 200)
+            imageView.heightAnchor.constraint(equalToConstant: 150),
+            imageView.widthAnchor.constraint(equalToConstant: 150)
         ])
     }
     
@@ -27,10 +27,10 @@ extension UIView {
         view.addSubview(textField)
         
         NSLayoutConstraint.activate([
-            textField.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10),
-            textField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            textField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            textField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+            textField.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 50),
+            textField.heightAnchor.constraint(equalToConstant: 50),
+            textField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            textField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50)
         ])
     }
 }
