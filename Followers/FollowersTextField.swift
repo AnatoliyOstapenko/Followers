@@ -33,6 +33,7 @@ class FollowersTextField: UITextField {
         backgroundColor = .tertiarySystemBackground
         autocorrectionType = .no
         placeholder = "Enter a username"
+        returnKeyType = .done
         
         translatesAutoresizingMaskIntoConstraints = false
     }

@@ -16,6 +16,7 @@
 		BC8E28222807311B00736DE3 /* FollowersButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E28212807311B00736DE3 /* FollowersButton.swift */; };
 		BC8E2824280736A500736DE3 /* FollowersTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E2823280736A500736DE3 /* FollowersTextField.swift */; };
 		BC8E282628075E4900736DE3 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E282528075E4900736DE3 /* UIView+Ext.swift */; };
+		BC8E28352809BE9000736DE3 /* FollowerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E28342809BE9000736DE3 /* FollowerListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		BC8E28212807311B00736DE3 /* FollowersButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersButton.swift; sourceTree = "<group>"; };
 		BC8E2823280736A500736DE3 /* FollowersTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersTextField.swift; sourceTree = "<group>"; };
 		BC8E282528075E4900736DE3 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		BC8E28342809BE9000736DE3 /* FollowerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			children = (
 				BC8E280928071ABB00736DE3 /* AppDelegate.swift */,
 				BC8E280B28071ABB00736DE3 /* SceneDelegate.swift */,
+				BC8E28342809BE9000736DE3 /* FollowerListViewController.swift */,
 				BC8E281D280724C200736DE3 /* SearchViewController.swift */,
 				BC8E281F2807253D00736DE3 /* FavoritesListViewController.swift */,
 				BC8E28212807311B00736DE3 /* FollowersButton.swift */,
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC8E28352809BE9000736DE3 /* FollowerListViewController.swift in Sources */,
 				BC8E281E280724C200736DE3 /* SearchViewController.swift in Sources */,
 				BC8E2824280736A500736DE3 /* FollowersTextField.swift in Sources */,
 				BC8E28222807311B00736DE3 /* FollowersButton.swift in Sources */,
