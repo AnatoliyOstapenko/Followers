@@ -17,8 +17,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = creatTabBar()
+        window?.rootViewController = createTabBar()
         window?.makeKeyAndVisible()
+        
+        configureNavBar()
     }
     
     // MARK: - Custom methods
@@ -36,11 +38,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         return UINavigationController(rootViewController: favoritesVC)
     }
     
-    func creatTabBar() -> UITabBarController {
+    func createTabBar() -> UITabBarController {
         let tabBar = UITabBarController()
         UITabBar.appearance().tintColor = .systemRed
         tabBar.viewControllers = [createSearchNavigationController(), createFavoritesListNavigationController()]
         return tabBar
+    }
+    
+    func configureNavBar() {
+        UINavigationBar.appearance().tintColor = .systemRed
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -12,6 +12,8 @@ class SearchViewController: UIViewController {
     let logoImageView = UIImageView()
     let usernameTextField = FollowersTextField()
     let callToActionButton = FollowersButton(backgroundColor: .systemRed, title: "Get Followers")
+    // Computed property to get bool and to check a textfield is empty
+    var isUsernameEntered: Bool { return !(usernameTextField.text?.isEmpty ?? false) }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +37,7 @@ class SearchViewController: UIViewController {
     }
     
     func setCallToActionButton() {
-        callToActionButton.addTarget(self, action: #selector(pushFollowerListVC), for: .touchUpOutside)
+        callToActionButton.addTarget(self, action: #selector(pushFollowerListVC), for: .touchUpInside)
 
     }
     
@@ -45,6 +47,10 @@ class SearchViewController: UIViewController {
     }
     
     @objc func pushFollowerListVC() {
+        // Check if username is entered
+        guard isUsernameEntered else {
+            print("username is empty")
+            return }
         let followerListVC = FollowerListViewController()
         followerListVC.username = usernameTextField.text
         followerListVC.title = (usernameTextField.text)?.uppercased()
