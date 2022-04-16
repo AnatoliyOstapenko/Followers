@@ -44,4 +44,20 @@ extension UIView {
             button.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
+    
+    func configureContainerView(view: UIView, container: UIView) {
+        view.addSubview(container)
+        container.layer.cornerRadius = 16
+        container.layer.borderWidth = 2
+        container.layer.borderColor = UIColor.white.cgColor
+        container.backgroundColor = .systemBackground
+        container.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            container.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            container.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            container.widthAnchor.constraint(equalToConstant: 280),
+            container.heightAnchor.constraint(equalToConstant: 220)
+        ])
+    }
 }
