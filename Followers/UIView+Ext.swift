@@ -60,4 +60,42 @@ extension UIView {
             container.heightAnchor.constraint(equalToConstant: 220)
         ])
     }
+    
+    func configureTitleLabel(container: UIView, label: UILabel, alert: String?) {
+        container.addSubview(label)
+        label.text = alert ?? "Warning"
+        
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: container.topAnchor, constant: 20),
+            label.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20),
+            label.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -20),
+            label.heightAnchor.constraint(equalToConstant: 28)
+        ])
+    }
+    
+    func configureActionButton(container: UIView, button: UIButton, title: String?) {
+        container.addSubview(button)
+        button.setTitle(title ?? "DONE", for: .normal)
+        
+        NSLayoutConstraint.activate([
+            button.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -20),
+            button.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20),
+            button.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -20),
+            button.heightAnchor.constraint(equalToConstant: 50)
+            
+        ])
+    }
+    
+    func configureMessageLabel(container: UIView, message: UILabel, body: String?, title: UILabel, button: UIButton) {
+        container.addSubview(message)
+        message.text = body ?? "Unable to complete request"
+        message.numberOfLines = 4
+        
+        NSLayoutConstraint.activate([
+            message.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 8),
+            message.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -12),
+            message.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20),
+            message.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -20)
+        ])
+    }
 }

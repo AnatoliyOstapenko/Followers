@@ -32,13 +32,12 @@ class SearchViewController: UIViewController {
     func setUIElements() {
         view.configureLogoImageView(view: view, imageView: logoImageView)
         view.configureUserTextField(view: view, textField: usernameTextField, imageView: logoImageView)
-        view.configureCallToActionButton(view: view, button: callToActionButton)
         setCallToActionButton()
     }
     
     func setCallToActionButton() {
+        view.configureCallToActionButton(view: view, button: callToActionButton)
         callToActionButton.addTarget(self, action: #selector(pushFollowerListVC), for: .touchUpInside)
-
     }
     
     func dismissKeyboardTapGesture() {
@@ -49,8 +48,9 @@ class SearchViewController: UIViewController {
     @objc func pushFollowerListVC() {
         // Check if username is entered
         guard isUsernameEntered else {
-            print("username is empty")
+            presentFollowersAlertOnMainThread(title: "Warning", message: "Please, type a username.    Don't leave this field empty 🤓", buttonTitle: "Done")
             return }
+        
         let followerListVC = FollowerListViewController()
         followerListVC.username = usernameTextField.text
         followerListVC.title = (usernameTextField.text)?.uppercased()
