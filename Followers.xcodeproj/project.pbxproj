@@ -14,7 +14,7 @@
 		BC46CBD2280C8059007098AA /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CBD1280C8059007098AA /* Follower.swift */; };
 		BC46CBE2280D9C52007098AA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CBE1280D9C52007098AA /* User.swift */; };
 		BC46CBE4280DC526007098AA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CBE3280DC526007098AA /* NetworkManager.swift */; };
-		BC46CBE7280DEF8D007098AA /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CBE6280DEF8D007098AA /* ErrorMessage.swift */; };
+		BC46CBE7280DEF8D007098AA /* FollowerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CBE6280DEF8D007098AA /* FollowerError.swift */; };
 		BC8E280A28071ABB00736DE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E280928071ABB00736DE3 /* AppDelegate.swift */; };
 		BC8E280C28071ABB00736DE3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E280B28071ABB00736DE3 /* SceneDelegate.swift */; };
 		BC8E281328071ABE00736DE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC8E281228071ABE00736DE3 /* Assets.xcassets */; };
@@ -35,7 +35,7 @@
 		BC46CBD1280C8059007098AA /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		BC46CBE1280D9C52007098AA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BC46CBE3280DC526007098AA /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		BC46CBE6280DEF8D007098AA /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		BC46CBE6280DEF8D007098AA /* FollowerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerError.swift; sourceTree = "<group>"; };
 		BC8E280628071ABB00736DE3 /* Followers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Followers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC8E280928071ABB00736DE3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC8E280B28071ABB00736DE3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -123,7 +123,7 @@
 		BC46CBE8280DEF93007098AA /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				BC46CBE6280DEF8D007098AA /* ErrorMessage.swift */,
+				BC46CBE6280DEF8D007098AA /* FollowerError.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -241,7 +241,7 @@
 				BC46CBCA280B03F5007098AA /* FollowersAlertViewController.swift in Sources */,
 				BC8E282628075E4900736DE3 /* UIView+Ext.swift in Sources */,
 				BC8E28202807253D00736DE3 /* FavoritesListViewController.swift in Sources */,
-				BC46CBE7280DEF8D007098AA /* ErrorMessage.swift in Sources */,
+				BC46CBE7280DEF8D007098AA /* FollowerError.swift in Sources */,
 				BC46CBE4280DC526007098AA /* NetworkManager.swift in Sources */,
 				BC8E280C28071ABB00736DE3 /* SceneDelegate.swift in Sources */,
 				BC46CBC6280AFDC8007098AA /* FollowersTitleLabel.swift in Sources */,
