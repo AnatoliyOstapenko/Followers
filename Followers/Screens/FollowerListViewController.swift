@@ -19,7 +19,7 @@ class FollowerListViewController: UIViewController {
         // Invoke singletone
         NetworkManager.shared.getFollowers(with: username ?? "", page: 1) { followers, error in
             guard let followers = followers else {
-                self.presentFollowersAlertOnMainThread(title: "Warning", message: error ?? "Unable to retreive data", buttonTitle: "OK")
+                self.presentFollowersAlertOnMainThread(title: "ERROR", message: error ?? "Unable to retreive data", buttonTitle: "OK")
                 return
             }
             print("Followers = \(followers.count)")
