@@ -13,4 +13,21 @@ struct User: Codable {
     var name: String?
     var location: String?
     var bio: String?
+    var publicRepos: Int
+    var publicGists: Int
+    var htmlURL: String
+    var following: Int
+    var followers: Int
+    var createdAt: String
+    
+    enum CodingKeys: String, CodingKey {
+        case login, name, location, bio, followers, following
+        case avatar = "avatar_url"
+        case publicRepos = "public_repos"
+        case publicGists = "public_gists"
+        case htmlURL = "html_url"
+        case createdAt = "created_at"
+        
+    }
+    
 }
