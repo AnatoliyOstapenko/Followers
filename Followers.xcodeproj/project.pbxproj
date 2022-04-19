@@ -15,6 +15,8 @@
 		BC46CBE2280D9C52007098AA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CBE1280D9C52007098AA /* User.swift */; };
 		BC46CBE4280DC526007098AA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CBE3280DC526007098AA /* NetworkManager.swift */; };
 		BC46CBE7280DEF8D007098AA /* FollowerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CBE6280DEF8D007098AA /* FollowerError.swift */; };
+		BC46CBEA280EFACF007098AA /* FollowerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CBE9280EFACF007098AA /* FollowerCollectionViewCell.swift */; };
+		BC46CBF0280EFD07007098AA /* FollowerAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CBEF280EFD07007098AA /* FollowerAvatarImageView.swift */; };
 		BC8E280A28071ABB00736DE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E280928071ABB00736DE3 /* AppDelegate.swift */; };
 		BC8E280C28071ABB00736DE3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E280B28071ABB00736DE3 /* SceneDelegate.swift */; };
 		BC8E281328071ABE00736DE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC8E281228071ABE00736DE3 /* Assets.xcassets */; };
@@ -36,6 +38,8 @@
 		BC46CBE1280D9C52007098AA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BC46CBE3280DC526007098AA /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		BC46CBE6280DEF8D007098AA /* FollowerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerError.swift; sourceTree = "<group>"; };
+		BC46CBE9280EFACF007098AA /* FollowerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCollectionViewCell.swift; sourceTree = "<group>"; };
+		BC46CBEF280EFD07007098AA /* FollowerAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerAvatarImageView.swift; sourceTree = "<group>"; };
 		BC8E280628071ABB00736DE3 /* Followers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Followers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC8E280928071ABB00736DE3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC8E280B28071ABB00736DE3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,10 +88,11 @@
 		BC46CBCF280B55DD007098AA /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
-				BC8E28212807311B00736DE3 /* FollowersButton.swift */,
-				BC8E2823280736A500736DE3 /* FollowersTextField.swift */,
-				BC46CBC5280AFDC8007098AA /* FollowersTitleLabel.swift */,
-				BC46CBC7280B0127007098AA /* FollowersBodyLabel.swift */,
+				BC46CBEC280EFAE2007098AA /* Buttons */,
+				BC46CBEE280EFAFB007098AA /* TextFields */,
+				BC46CBED280EFAF1007098AA /* Labels */,
+				BC46CBEB280EFAD5007098AA /* Cells */,
+				BC46CBF1280EFD28007098AA /* Images */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -126,6 +131,47 @@
 				BC46CBE6280DEF8D007098AA /* FollowerError.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		BC46CBEB280EFAD5007098AA /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BC46CBE9280EFACF007098AA /* FollowerCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		BC46CBEC280EFAE2007098AA /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				BC8E28212807311B00736DE3 /* FollowersButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		BC46CBED280EFAF1007098AA /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				BC46CBC5280AFDC8007098AA /* FollowersTitleLabel.swift */,
+				BC46CBC7280B0127007098AA /* FollowersBodyLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
+		BC46CBEE280EFAFB007098AA /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				BC8E2823280736A500736DE3 /* FollowersTextField.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		BC46CBF1280EFD28007098AA /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				BC46CBEF280EFD07007098AA /* FollowerAvatarImageView.swift */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		BC8E27FD28071ABB00736DE3 = {
@@ -232,11 +278,13 @@
 				BC8E28352809BE9000736DE3 /* FollowerListViewController.swift in Sources */,
 				BC8E281E280724C200736DE3 /* SearchViewController.swift in Sources */,
 				BC46CBCC280B440E007098AA /* UIViewController+Ext.swift in Sources */,
+				BC46CBF0280EFD07007098AA /* FollowerAvatarImageView.swift in Sources */,
 				BC8E2824280736A500736DE3 /* FollowersTextField.swift in Sources */,
 				BC8E28222807311B00736DE3 /* FollowersButton.swift in Sources */,
 				BC46CBC8280B0127007098AA /* FollowersBodyLabel.swift in Sources */,
 				BC46CBE2280D9C52007098AA /* User.swift in Sources */,
 				BC8E280A28071ABB00736DE3 /* AppDelegate.swift in Sources */,
+				BC46CBEA280EFACF007098AA /* FollowerCollectionViewCell.swift in Sources */,
 				BC46CBD2280C8059007098AA /* Follower.swift in Sources */,
 				BC46CBCA280B03F5007098AA /* FollowersAlertViewController.swift in Sources */,
 				BC8E282628075E4900736DE3 /* UIView+Ext.swift in Sources */,
