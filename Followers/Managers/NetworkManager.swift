@@ -5,9 +5,11 @@
 //  Created by AnatoliiOstapenko on 18.04.2022.
 //
 
-import Foundation
+import UIKit
 
 class NetworkManager {
+    
+    let cache = NSCache <NSString, UIImage>() // Create cache
     // Create singleton:
     static let shared = NetworkManager()
     init() {}
