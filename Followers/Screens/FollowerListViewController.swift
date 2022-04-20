@@ -11,6 +11,8 @@ class FollowerListViewController: UIViewController {
     
     var username: String?
     var followers: [Follower] = []
+    var page = 1
+    var hasMoreFollowers = true
     
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource <Section, Follower>!
@@ -18,7 +20,7 @@ class FollowerListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureVC()
-        setFollowers()
+        setFollowers(username: username ?? "", page: page)
         setCollectionView()
         configuDataSource()
     }
@@ -28,11 +30,12 @@ class FollowerListViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-    func setFollowers() {
+    func setFollowers(username: String, page: Int) {
         // Invoke singletone
-        NetworkManager.shared.getFollowers(with: username ?? "", page: 1) { [weak self] result in
+        NetworkManager.shared.getFollowers(with: username, page: page) { [weak self] result in
             switch result {
             case .success(let followers):
+                if followers.count < 100 { self?.hasMoreFollowers = false }
                 self?.followers = followers
                 self?.updateData()
             case .failure(let error):
@@ -49,6 +52,7 @@ class FollowerListViewController: UIViewController {
     func setCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: view.setThreeColumnFlowLayout(view: view))
         view.configureCollectionView(view: view, collectionView: collectionView)
+        collectionView.delegate = self
     }
     
     func configuDataSource() {
@@ -75,5 +79,21 @@ extension FollowerListViewController {
     // Enum hashable by default
     enum Section {
         case main
+    }
+}
+// MARK: - UICollectionView Delegate
+extension FollowerListViewController: UICollectionViewDelegate {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+        
+        if offsetY > contentHeight - height {
+            guard hasMoreFollowers == true else { return }
+            page += 1
+            setFollowers(username: username ?? "", page: page)
+            
+        }
+        
     }
 }
