@@ -98,4 +98,40 @@ extension UIView {
             message.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -20)
         ])
     }
+    
+    func configureFollowerCell(view: UIView, image: UIImageView, label: UILabel) {
+        view.addSubview(image)
+        view.addSubview(label)
+        
+        NSLayoutConstraint.activate([
+            image.topAnchor.constraint(equalTo: view.topAnchor, constant: 8),
+            image.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+            image.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
+            image.heightAnchor.constraint(equalTo: image.widthAnchor),
+            
+            label.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 12),
+            label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
+            label.heightAnchor.constraint(equalToConstant: 20)
+        ])
+    }
+    
+    func configureCollectionView(view: UIView, collectionView: UICollectionView) {
+        view.addSubview(collectionView)
+        collectionView.backgroundColor = .systemBackground
+        collectionView.register(FollowerCollectionViewCell.self, forCellWithReuseIdentifier: FollowerCollectionViewCell.reuseID)
+    }
+    
+    func setThreeColumnFlowLayout(view: UIView) -> UICollectionViewFlowLayout {
+        let width = view.bounds.width
+        let padding: CGFloat = 12 // Distance between screen bound and icon bound
+        let minimumItemSpacing: CGFloat = 10 // Distance between screen bounds
+        let availableWidth = width - (padding * 2) - (minimumItemSpacing * 2)
+        let itemWidth = availableWidth / 3
+        
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
+        flowLayout.itemSize = CGSize(width: itemWidth, height: itemWidth + 40)
+        return flowLayout
+    }
 }

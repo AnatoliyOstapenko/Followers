@@ -9,21 +9,26 @@ import UIKit
 
 class FollowerCollectionViewCell: UICollectionViewCell {
     
-    let reuseID = "FollowerCollectionViewCell"
+    static let reuseID = "FollowerCollectionViewCell"
     let avatarImage = FollowerAvatarImageView(frame: .zero)
     let usernameLabel = FollowersTitleLabel(textAligment: .center, fontSize: 16)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configure()
+        configureUI()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func configure() {
-        
+    private func configureUI() {
+        contentView.configureFollowerCell(view: contentView, image: avatarImage, label: usernameLabel)
+    }
+    
+    func setFollower(follower: Follower) {
+        usernameLabel.text = follower.login
+        avatarImage.downloadImage(urlString: follower.avatar)
     }
     
 }
