@@ -36,7 +36,7 @@ class FollowerListViewController: UIViewController {
             switch result {
             case .success(let followers):
                 if followers.count < 100 { self?.hasMoreFollowers = false }
-                self?.followers = followers
+                self?.followers.append(contentsOf: followers) // to see first icon on the next page
                 self?.updateData()
             case .failure(let error):
                 self?.presentFollowersAlertOnMainThread(title: "Warning", message: error.rawValue, buttonTitle: "ok")
