@@ -17,7 +17,6 @@ class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground // automation change background color depending on iPhone mode
         setUIElements()
         dismissKeyboardTapGesture()
         usernameTextField.delegate = self
@@ -30,6 +29,7 @@ class SearchViewController: UIViewController {
     }
     
     func setUIElements() {
+        view.backgroundColor = .systemBackground // automation change background color depending on iPhone mode
         view.configureLogoImageView(view: view, imageView: logoImageView)
         view.configureUserTextField(view: view, textField: usernameTextField, imageView: logoImageView)
         setCallToActionButton()

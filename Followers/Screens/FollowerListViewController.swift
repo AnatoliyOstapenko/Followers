@@ -19,11 +19,16 @@ class FollowerListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.setNavigationBarHidden(false, animated: true)
         configureVC()
-        setFollowers(username: username ?? "", page: page)
         setCollectionView()
         configuDataSource()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setFollowers(username: username ?? "", page: page)
+       }
     
     func configureVC() {
         view.backgroundColor = .systemBackground
@@ -31,22 +36,19 @@ class FollowerListViewController: UIViewController {
     }
     
     func setFollowers(username: String, page: Int) {
+        spinnerActivated()
         // Invoke singletone
         NetworkManager.shared.getFollowers(with: username, page: page) { [weak self] result in
             switch result {
             case .success(let followers):
                 if followers.count < 100 { self?.hasMoreFollowers = false }
+                self?.spinnerDeactivated()
                 self?.followers.append(contentsOf: followers) // to see first icon on the next page
                 self?.updateData()
             case .failure(let error):
                 self?.presentFollowersAlertOnMainThread(title: "Warning", message: error.rawValue, buttonTitle: "ok")
             }
         }
-    }
- 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     func setCollectionView() {
