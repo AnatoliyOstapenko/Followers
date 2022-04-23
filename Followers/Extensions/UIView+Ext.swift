@@ -148,16 +148,16 @@ extension UIView {
         ])
     }
     
-    func setLogoImageView(view: UIView, imageView: UIImageView) {
+    func setLogoImageView(view: UIView, imageView: UIImageView, label: UILabel) {
         view.addSubview(imageView)
         imageView.image = UIImage(named: "symbolPositive")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            imageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1.3),
-            imageView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1.3),
-            imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 200),
-            imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 140)
+            imageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
+            imageView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
+            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            imageView.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 40)
         ])
     }
 }

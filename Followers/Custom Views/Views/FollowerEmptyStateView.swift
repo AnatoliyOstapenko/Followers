@@ -28,8 +28,8 @@ class FollowerEmptyStateView: UIView {
     }
     
     private func configure() {
-        setLogoImageView(view: self, imageView: logoImageView)
         setMessageLabel(view: self, label: messageLabel)
+        setLogoImageView(view: self, imageView: logoImageView, label: messageLabel)
     }
     
     

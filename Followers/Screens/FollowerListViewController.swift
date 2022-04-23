@@ -20,8 +20,9 @@ class FollowerListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureVC()
+        setSearchController()
         setCollectionView()
-        configuDataSource()
+        configureDataSource()
         setFollowers(username: username ?? "", page: page)
     }
     
@@ -59,13 +60,21 @@ class FollowerListViewController: UIViewController {
         }
     }
     
+    func setSearchController() {
+        let searchController = UISearchController()
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.placeholder = "Search for a username"
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false // resolve bag with disappearing search bar
+    }
+    
     func setCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: view.setThreeColumnFlowLayout(view: view))
         view.configureCollectionView(view: view, collectionView: collectionView)
         collectionView.delegate = self
     }
     
-    func configuDataSource() {
+    func configureDataSource() {
         dataSource = UICollectionViewDiffableDataSource <Section, Follower>(collectionView: collectionView, cellProvider: { collectionView, indexPath, follower in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FollowerCollectionViewCell.reuseID, for: indexPath) as! FollowerCollectionViewCell
             cell.setFollower(follower: follower)
@@ -107,3 +116,10 @@ extension FollowerListViewController: UICollectionViewDelegate {
         
     }
 }
+// MARK: - SearchResultUpdating
+extension FollowerListViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        
+    }
+}
+
