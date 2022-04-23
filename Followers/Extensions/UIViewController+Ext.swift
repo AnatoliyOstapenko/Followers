@@ -47,8 +47,8 @@ extension UIViewController {
         }
     }
     
-    func showEmptyStateView(view: UIView, message: String) {
-        let emptyStateView = FollowerEmptyStateView(message: message)
+    func showEmptyStateView(view: UIView, message: FollowerError) {
+        let emptyStateView = FollowerEmptyStateView(message: .noFollowers)
         emptyStateView.frame = view.bounds
         view.addSubview(emptyStateView)
     }

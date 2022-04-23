@@ -21,15 +21,15 @@ class FollowerEmptyStateView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(message: String) {
+    init(message: FollowerError) {
         super.init(frame: .zero)
-        messageLabel.text = message
+        messageLabel.text = message.rawValue
         configure()
     }
     
     private func configure() {
-        self.setLogoImageView(view: self, imageView: logoImageView)
-        self.setMessageLabel(view: self, label: messageLabel)
+        setLogoImageView(view: self, imageView: logoImageView)
+        setMessageLabel(view: self, label: messageLabel)
     }
     
     

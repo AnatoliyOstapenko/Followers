@@ -137,13 +137,13 @@ extension UIView {
     
     func setMessageLabel(view: UIView, label: UILabel) {
         view.addSubview(label)
-        label.numberOfLines = 3
+        label.numberOfLines = 2
         label.textColor = .secondaryLabel
         
         NSLayoutConstraint.activate([
-            label.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -150),
+            label.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -150),
             label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            label.trailingAnchor.constraint(equalTo: view.leadingAnchor, constant: -40),
+            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             label.heightAnchor.constraint(equalToConstant: 200)
         ])
     }

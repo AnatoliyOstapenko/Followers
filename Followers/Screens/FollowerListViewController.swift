@@ -39,14 +39,22 @@ class FollowerListViewController: UIViewController {
         spinnerActivated()
         // Invoke singletone
         NetworkManager.shared.getFollowers(with: username, page: page) { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let followers):
-                if followers.count < 100 { self?.hasMoreFollowers = false }
-                self?.spinnerDeactivated()
-                self?.followers.append(contentsOf: followers) // to see first icon on the next page
-                self?.updateData()
+                
+                if followers.isEmpty {
+                    DispatchQueue.main.async {
+                        self.showEmptyStateView(view: self.view, message: .noFollowers)
+                    }
+                }
+                
+                if followers.count < 100 { self.hasMoreFollowers = false }
+                self.spinnerDeactivated()
+                self.followers.append(contentsOf: followers) // to see first icon on the next page
+                self.updateData()
             case .failure(let error):
-                self?.presentFollowersAlertOnMainThread(title: "Warning", message: error.rawValue, buttonTitle: "ok")
+                self.presentFollowersAlertOnMainThread(title: "Warning", message: error.rawValue, buttonTitle: "ok")
             }
         }
     }
@@ -89,7 +97,7 @@ extension FollowerListViewController: UICollectionViewDelegate {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
         let height = scrollView.frame.size.height
-        
+        // Check if user scroll down below last bound of screen:
         if offsetY > contentHeight - height {
             guard hasMoreFollowers == true else { return }
             page += 1
