@@ -57,7 +57,7 @@ class FollowerListViewController: UIViewController {
                 self.followers.append(contentsOf: followers) // to see first icon on the next page
                 self.updateData(followers: self.followers)
             case .failure(let error):
-                self.presentFollowersAlertOnMainThread(title: "Warning", message: error.rawValue, buttonTitle: "ok")
+                self.presentAlert(title: "Warning", message: error.rawValue, buttonTitle: "ok")
             }
         }
     }
@@ -121,9 +121,8 @@ extension FollowerListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let activeArray = isSearching ? filtredFollowers : followers
-        collectionView.reloadData()
-        print(activeArray[indexPath.item].login)
         let userInfoVC = UserInfoVC()
+        userInfoVC.username = activeArray[indexPath.item].login
         let navController = UINavigationController(rootViewController: userInfoVC)
         present(navController, animated: true, completion: nil)
 

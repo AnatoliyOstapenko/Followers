@@ -8,14 +8,33 @@
 import UIKit
 
 class UserInfoVC: UIViewController {
+    
+    var username: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        configureUI()
         setBarButtons()
+        downloadUser()
     }
     
-    func setBarButtons() {
+    private func configureUI() {
+        view.backgroundColor = .systemBackground
+        title = username?.uppercased() ?? ""
+    }
+    
+    private func downloadUser() {
+        NetworkManager.shared.getUserInfo(with: username ?? "") { [weak self] result in
+            switch result {
+            case .success(let user):
+                print(user.bio ?? "")
+            case .failure(let error):
+                self?.presentAlert(title: "Error", message: error.rawValue, buttonTitle: "OK")
+            }
+        }
+    }
+    
+    private func setBarButtons() {
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done(sender:)))
         let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
         navigationItem.leftBarButtonItem = cancelButton

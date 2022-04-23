@@ -11,7 +11,7 @@ fileprivate var containerView: UIView! // Add fileprivate to use it in extension
 
 extension UIViewController {
     
-    func presentFollowersAlertOnMainThread(title: String, message: String, buttonTitle: String) {
+    func presentAlert(title: String, message: String, buttonTitle: String) {
         DispatchQueue.main.async {
             let alert = FollowersAlertViewController(alertTitle: title, message: message, buttonTitle: buttonTitle)
             alert.modalPresentationStyle = .overFullScreen
@@ -26,12 +26,12 @@ extension UIViewController {
         containerView.backgroundColor = .systemBackground
         containerView.alpha = 0
         UIView.animate(withDuration: 0.7) { containerView.alpha = 0.5 }
-        
+
         let activityIndicator = UIActivityIndicatorView(style: .large)
         containerView.addSubview(activityIndicator)
         activityIndicator.color = .label
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        
+
         NSLayoutConstraint.activate([
             activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
