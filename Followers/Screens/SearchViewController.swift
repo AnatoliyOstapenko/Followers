@@ -59,7 +59,6 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("Return button pressed")
         pushFollowerListVC()
         return true
     }
