@@ -18,6 +18,7 @@
 		BC46CBEA280EFACF007098AA /* FollowerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CBE9280EFACF007098AA /* FollowerCollectionViewCell.swift */; };
 		BC46CBF0280EFD07007098AA /* FollowerAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CBEF280EFD07007098AA /* FollowerAvatarImageView.swift */; };
 		BC46CBF52811A456007098AA /* FollowerEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CBF42811A456007098AA /* FollowerEmptyStateView.swift */; };
+		BC46CBF928146E81007098AA /* UserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CBF828146E81007098AA /* UserInfoVC.swift */; };
 		BC8E280A28071ABB00736DE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E280928071ABB00736DE3 /* AppDelegate.swift */; };
 		BC8E280C28071ABB00736DE3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E280B28071ABB00736DE3 /* SceneDelegate.swift */; };
 		BC8E281328071ABE00736DE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC8E281228071ABE00736DE3 /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 		BC46CBE9280EFACF007098AA /* FollowerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCollectionViewCell.swift; sourceTree = "<group>"; };
 		BC46CBEF280EFD07007098AA /* FollowerAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerAvatarImageView.swift; sourceTree = "<group>"; };
 		BC46CBF42811A456007098AA /* FollowerEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerEmptyStateView.swift; sourceTree = "<group>"; };
+		BC46CBF828146E81007098AA /* UserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoVC.swift; sourceTree = "<group>"; };
 		BC8E280628071ABB00736DE3 /* Followers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Followers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC8E280928071ABB00736DE3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC8E280B28071ABB00736DE3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			children = (
 				BC8E281D280724C200736DE3 /* SearchViewController.swift */,
 				BC8E28342809BE9000736DE3 /* FollowerListViewController.swift */,
+				BC46CBF828146E81007098AA /* UserInfoVC.swift */,
 				BC8E281F2807253D00736DE3 /* FavoritesListViewController.swift */,
 			);
 			path = Screens;
@@ -313,6 +316,7 @@
 				BC46CBE4280DC526007098AA /* NetworkManager.swift in Sources */,
 				BC8E280C28071ABB00736DE3 /* SceneDelegate.swift in Sources */,
 				BC46CBC6280AFDC8007098AA /* FollowersTitleLabel.swift in Sources */,
+				BC46CBF928146E81007098AA /* UserInfoVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
