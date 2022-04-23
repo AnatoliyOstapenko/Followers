@@ -46,4 +46,10 @@ extension UIViewController {
             containerView = nil
         }
     }
+    
+    func showEmptyStateView(view: UIView, message: String) {
+        let emptyStateView = FollowerEmptyStateView(message: message)
+        emptyStateView.frame = view.bounds
+        view.addSubview(emptyStateView)
+    }
 }

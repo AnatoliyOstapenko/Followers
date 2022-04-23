@@ -20,9 +20,8 @@ class SearchViewController: UIViewController {
         setUIElements()
         dismissKeyboardTapGesture()
         usernameTextField.delegate = self
-
     }
-   // hide navbar by viewWillAppear
+   // hide navbar every time you come to search screen
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)

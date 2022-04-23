@@ -19,15 +19,15 @@ class FollowerListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.setNavigationBarHidden(false, animated: true)
         configureVC()
         setCollectionView()
         configuDataSource()
+        setFollowers(username: username ?? "", page: page)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setFollowers(username: username ?? "", page: page)
+        navigationController?.setNavigationBarHidden(false, animated: true)
        }
     
     func configureVC() {

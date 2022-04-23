@@ -134,4 +134,30 @@ extension UIView {
         flowLayout.itemSize = CGSize(width: itemWidth, height: itemWidth + 40)
         return flowLayout
     }
+    
+    func setMessageLabel(view: UIView, label: UILabel) {
+        view.addSubview(label)
+        label.numberOfLines = 3
+        label.textColor = .secondaryLabel
+        
+        NSLayoutConstraint.activate([
+            label.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -150),
+            label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            label.trailingAnchor.constraint(equalTo: view.leadingAnchor, constant: -40),
+            label.heightAnchor.constraint(equalToConstant: 200)
+        ])
+    }
+    
+    func setLogoImageView(view: UIView, imageView: UIImageView) {
+        view.addSubview(imageView)
+        imageView.image = UIImage(named: "symbolPositive")
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            imageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1.3),
+            imageView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1.3),
+            imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 200),
+            imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 140)
+        ])
+    }
 }

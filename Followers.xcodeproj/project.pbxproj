@@ -17,6 +17,7 @@
 		BC46CBE7280DEF8D007098AA /* FollowerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CBE6280DEF8D007098AA /* FollowerError.swift */; };
 		BC46CBEA280EFACF007098AA /* FollowerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CBE9280EFACF007098AA /* FollowerCollectionViewCell.swift */; };
 		BC46CBF0280EFD07007098AA /* FollowerAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CBEF280EFD07007098AA /* FollowerAvatarImageView.swift */; };
+		BC46CBF52811A456007098AA /* FollowerEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CBF42811A456007098AA /* FollowerEmptyStateView.swift */; };
 		BC8E280A28071ABB00736DE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E280928071ABB00736DE3 /* AppDelegate.swift */; };
 		BC8E280C28071ABB00736DE3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E280B28071ABB00736DE3 /* SceneDelegate.swift */; };
 		BC8E281328071ABE00736DE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC8E281228071ABE00736DE3 /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 		BC46CBE6280DEF8D007098AA /* FollowerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerError.swift; sourceTree = "<group>"; };
 		BC46CBE9280EFACF007098AA /* FollowerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCollectionViewCell.swift; sourceTree = "<group>"; };
 		BC46CBEF280EFD07007098AA /* FollowerAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerAvatarImageView.swift; sourceTree = "<group>"; };
+		BC46CBF42811A456007098AA /* FollowerEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerEmptyStateView.swift; sourceTree = "<group>"; };
 		BC8E280628071ABB00736DE3 /* Followers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Followers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC8E280928071ABB00736DE3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC8E280B28071ABB00736DE3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,7 +82,6 @@
 				BC8E281D280724C200736DE3 /* SearchViewController.swift */,
 				BC8E28342809BE9000736DE3 /* FollowerListViewController.swift */,
 				BC8E281F2807253D00736DE3 /* FavoritesListViewController.swift */,
-				BC46CBC9280B03F5007098AA /* FollowersAlertViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -93,6 +94,8 @@
 				BC46CBED280EFAF1007098AA /* Labels */,
 				BC46CBEB280EFAD5007098AA /* Cells */,
 				BC46CBF1280EFD28007098AA /* Images */,
+				BC46CBF72814209A007098AA /* ViewControllers */,
+				BC46CBF62811A461007098AA /* Views */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -172,6 +175,22 @@
 				BC46CBEF280EFD07007098AA /* FollowerAvatarImageView.swift */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		BC46CBF62811A461007098AA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BC46CBF42811A456007098AA /* FollowerEmptyStateView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BC46CBF72814209A007098AA /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BC46CBC9280B03F5007098AA /* FollowersAlertViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		BC8E27FD28071ABB00736DE3 = {
@@ -275,6 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC46CBF52811A456007098AA /* FollowerEmptyStateView.swift in Sources */,
 				BC8E28352809BE9000736DE3 /* FollowerListViewController.swift in Sources */,
 				BC8E281E280724C200736DE3 /* SearchViewController.swift in Sources */,
 				BC46CBCC280B440E007098AA /* UIViewController+Ext.swift in Sources */,
