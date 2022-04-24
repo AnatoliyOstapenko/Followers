@@ -11,6 +11,7 @@ class FollowerAvatarImageView: UIImageView {
     
     let cache = NetworkManager.shared.cache
     let placeholderImage = UIImage(named: "logoPositive")
+    let placeholderString = "logoPositive"
 
     override init(frame: CGRect) {
         super.init(frame: frame)

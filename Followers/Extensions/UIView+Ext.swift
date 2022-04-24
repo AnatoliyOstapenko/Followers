@@ -8,6 +8,9 @@
 import Foundation
 import UIKit
 
+fileprivate var padding: CGFloat = 20
+fileprivate var paddingDozen: CGFloat = 12
+
 extension UIView {
     
     func configureLogoImageView(view: UIView, imageView: UIImageView) {
@@ -66,9 +69,9 @@ extension UIView {
         label.text = alert ?? "Warning"
         
         NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: container.topAnchor, constant: 20),
-            label.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20),
-            label.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -20),
+            label.topAnchor.constraint(equalTo: container.topAnchor, constant: padding),
+            label.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: padding),
+            label.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -padding),
             label.heightAnchor.constraint(equalToConstant: 28)
         ])
     }
@@ -78,9 +81,9 @@ extension UIView {
         button.setTitle(title ?? "DONE", for: .normal)
         
         NSLayoutConstraint.activate([
-            button.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -20),
-            button.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20),
-            button.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -20),
+            button.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -padding),
+            button.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: padding),
+            button.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -padding),
             button.heightAnchor.constraint(equalToConstant: 50)
             
         ])
@@ -93,9 +96,9 @@ extension UIView {
         
         NSLayoutConstraint.activate([
             message.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 8),
-            message.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -12),
-            message.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20),
-            message.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -20)
+            message.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -paddingDozen),
+            message.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: padding),
+            message.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -padding)
         ])
     }
     
@@ -109,10 +112,10 @@ extension UIView {
             image.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
             image.heightAnchor.constraint(equalTo: image.widthAnchor),
             
-            label.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 12),
+            label.topAnchor.constraint(equalTo: image.bottomAnchor, constant: paddingDozen),
             label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
             label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
-            label.heightAnchor.constraint(equalToConstant: 20)
+            label.heightAnchor.constraint(equalToConstant: padding)
         ])
     }
     
@@ -158,6 +161,75 @@ extension UIView {
             imageView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
             imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             imageView.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 40)
+        ])
+    }
+    
+    func setAvatarImageView(view: UIView, image: UIImageView) {
+        view.addSubview(image)
+        
+        NSLayoutConstraint.activate([
+            image.topAnchor.constraint(equalTo: view.topAnchor, constant: padding),
+            image.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            image.widthAnchor.constraint(equalToConstant: 90),
+            image.heightAnchor.constraint(equalTo: image.widthAnchor)
+        ])
+    }
+    
+    func setUsernameLabel(view: UIView, label: UILabel, image: UIImageView) {
+        view.addSubview(label)
+        
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: image.topAnchor),
+            label.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: paddingDozen),
+            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            label.heightAnchor.constraint(equalToConstant: 38)
+        ])
+    }
+    
+    func setNameLabel(view: UIView, label: UILabel, image: UIImageView) {
+        view.addSubview(label)
+        
+        NSLayoutConstraint.activate([
+            label.centerYAnchor.constraint(equalTo: image.centerYAnchor, constant: 8),
+            label.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: paddingDozen),
+            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            label.heightAnchor.constraint(equalToConstant: 20)
+        ])
+    }
+    
+    func setLocationImageView(view: UIView, image: UIImageView, avatar: UIImageView) {
+        view.addSubview(image)
+        image.tintColor = .secondaryLabel
+        image.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            image.bottomAnchor.constraint(equalTo: avatar.bottomAnchor),
+            image.leadingAnchor.constraint(equalTo: avatar.trailingAnchor, constant: padding),
+            image.widthAnchor.constraint(equalToConstant: 20),
+            image.heightAnchor.constraint(equalTo: image.widthAnchor)
+        ])
+    }
+    
+    func setLocationLabel(view: UIView, label: UILabel, image: UIImageView) {
+        view.addSubview(label)
+        
+        NSLayoutConstraint.activate([
+            label.centerYAnchor.constraint(equalTo: image.centerYAnchor),
+            label.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: 5),
+            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            label.heightAnchor.constraint(equalToConstant: 20)
+        ])
+    }
+    
+    func setBioLabel(view: UIView, label: UILabel, image: UIImageView) {
+        view.addSubview(label)
+        label.numberOfLines = 3
+        
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: image.bottomAnchor, constant: paddingDozen),
+            label.leadingAnchor.constraint(equalTo: image.leadingAnchor),
+            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            label.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
 }

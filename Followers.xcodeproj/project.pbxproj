@@ -19,6 +19,9 @@
 		BC46CBF0280EFD07007098AA /* FollowerAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CBEF280EFD07007098AA /* FollowerAvatarImageView.swift */; };
 		BC46CBF52811A456007098AA /* FollowerEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CBF42811A456007098AA /* FollowerEmptyStateView.swift */; };
 		BC46CBF928146E81007098AA /* UserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CBF828146E81007098AA /* UserInfoVC.swift */; };
+		BC46CC252815A1A2007098AA /* FollowerUserInfoHeaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CC242815A1A2007098AA /* FollowerUserInfoHeaderVC.swift */; };
+		BC46CC272815A244007098AA /* FollowerSecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CC262815A244007098AA /* FollowerSecondaryTitleLabel.swift */; };
+		BC46CC292815CC62007098AA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CC282815CC62007098AA /* Constants.swift */; };
 		BC8E280A28071ABB00736DE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E280928071ABB00736DE3 /* AppDelegate.swift */; };
 		BC8E280C28071ABB00736DE3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E280B28071ABB00736DE3 /* SceneDelegate.swift */; };
 		BC8E281328071ABE00736DE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC8E281228071ABE00736DE3 /* Assets.xcassets */; };
@@ -44,6 +47,9 @@
 		BC46CBEF280EFD07007098AA /* FollowerAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerAvatarImageView.swift; sourceTree = "<group>"; };
 		BC46CBF42811A456007098AA /* FollowerEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerEmptyStateView.swift; sourceTree = "<group>"; };
 		BC46CBF828146E81007098AA /* UserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoVC.swift; sourceTree = "<group>"; };
+		BC46CC242815A1A2007098AA /* FollowerUserInfoHeaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerUserInfoHeaderVC.swift; sourceTree = "<group>"; };
+		BC46CC262815A244007098AA /* FollowerSecondaryTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerSecondaryTitleLabel.swift; sourceTree = "<group>"; };
+		BC46CC282815CC62007098AA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BC8E280628071ABB00736DE3 /* Followers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Followers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC8E280928071ABB00736DE3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC8E280B28071ABB00736DE3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				BC46CBE6280DEF8D007098AA /* FollowerError.swift */,
+				BC46CC282815CC62007098AA /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -159,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				BC46CBC5280AFDC8007098AA /* FollowersTitleLabel.swift */,
+				BC46CC262815A244007098AA /* FollowerSecondaryTitleLabel.swift */,
 				BC46CBC7280B0127007098AA /* FollowersBodyLabel.swift */,
 			);
 			path = Labels;
@@ -192,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				BC46CBC9280B03F5007098AA /* FollowersAlertViewController.swift */,
+				BC46CC242815A1A2007098AA /* FollowerUserInfoHeaderVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -301,7 +310,9 @@
 				BC8E28352809BE9000736DE3 /* FollowerListViewController.swift in Sources */,
 				BC8E281E280724C200736DE3 /* SearchViewController.swift in Sources */,
 				BC46CBCC280B440E007098AA /* UIViewController+Ext.swift in Sources */,
+				BC46CC272815A244007098AA /* FollowerSecondaryTitleLabel.swift in Sources */,
 				BC46CBF0280EFD07007098AA /* FollowerAvatarImageView.swift in Sources */,
+				BC46CC292815CC62007098AA /* Constants.swift in Sources */,
 				BC8E2824280736A500736DE3 /* FollowersTextField.swift in Sources */,
 				BC8E28222807311B00736DE3 /* FollowersButton.swift in Sources */,
 				BC46CBC8280B0127007098AA /* FollowersBodyLabel.swift in Sources */,
@@ -316,6 +327,7 @@
 				BC46CBE4280DC526007098AA /* NetworkManager.swift in Sources */,
 				BC8E280C28071ABB00736DE3 /* SceneDelegate.swift in Sources */,
 				BC46CBC6280AFDC8007098AA /* FollowersTitleLabel.swift in Sources */,
+				BC46CC252815A1A2007098AA /* FollowerUserInfoHeaderVC.swift in Sources */,
 				BC46CBF928146E81007098AA /* UserInfoVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
