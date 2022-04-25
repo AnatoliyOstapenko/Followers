@@ -9,7 +9,9 @@ import UIKit
 
 class UserInfoVC: UIViewController {
     
-    var headerView = UIView()
+    var headerContainer = UIView()
+    var middleContainer = UIView()
+    var bottomContainer = UIView()
     var username: String?
 
     override func viewDidLoad() {
@@ -21,8 +23,9 @@ class UserInfoVC: UIViewController {
     
     private func configureUI() {
         view.backgroundColor = .systemBackground
-        title = username?.uppercased() ?? ""
-        view.configureHeaderView(view: view, headerView: headerView)
+        view.configureHeaderContainer(view: view, container: headerContainer)
+        view.setNextContainer(view: view, container: middleContainer, topContainer: headerContainer)
+        view.setNextContainer(view: view, container: bottomContainer, topContainer: middleContainer)
     }
     
     func headerChildVC(childVC: UIViewController, containerView: UIView) {
@@ -38,7 +41,7 @@ class UserInfoVC: UIViewController {
             switch result {
             case .success(let user):
                 DispatchQueue.main.async {
-                    self.headerChildVC(childVC: FollowerUserInfoHeaderVC(user: user), containerView: self.headerView)
+                    self.headerChildVC(childVC: FollowerUserInfoHeaderVC(user: user), containerView: self.headerContainer)
                 }
             case .failure(let error):
                 self.presentAlert(title: "Error", message: error.rawValue, buttonTitle: "OK")

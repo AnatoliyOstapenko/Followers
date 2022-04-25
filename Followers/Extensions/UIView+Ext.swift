@@ -48,7 +48,7 @@ extension UIView {
         ])
     }
     
-    func configureContainerView(view: UIView, container: UIView) {
+    func setAlertContainer(view: UIView, container: UIView) {
         view.addSubview(container)
         container.layer.cornerRadius = 16
         container.layer.borderWidth = 2
@@ -169,7 +169,7 @@ extension UIView {
         
         NSLayoutConstraint.activate([
             image.topAnchor.constraint(equalTo: view.topAnchor, constant: padding),
-            image.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            image.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             image.widthAnchor.constraint(equalToConstant: 90),
             image.heightAnchor.constraint(equalTo: image.widthAnchor)
         ])
@@ -181,7 +181,7 @@ extension UIView {
         NSLayoutConstraint.activate([
             label.topAnchor.constraint(equalTo: image.topAnchor),
             label.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: paddingDozen),
-            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            label.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             label.heightAnchor.constraint(equalToConstant: 38)
         ])
     }
@@ -192,7 +192,7 @@ extension UIView {
         NSLayoutConstraint.activate([
             label.centerYAnchor.constraint(equalTo: image.centerYAnchor, constant: 8),
             label.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: paddingDozen),
-            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            label.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             label.heightAnchor.constraint(equalToConstant: 20)
         ])
     }
@@ -216,7 +216,7 @@ extension UIView {
         NSLayoutConstraint.activate([
             label.centerYAnchor.constraint(equalTo: image.centerYAnchor),
             label.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: 5),
-            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            label.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             label.heightAnchor.constraint(equalToConstant: 20)
         ])
     }
@@ -228,20 +228,34 @@ extension UIView {
         NSLayoutConstraint.activate([
             label.topAnchor.constraint(equalTo: image.bottomAnchor, constant: paddingDozen),
             label.leadingAnchor.constraint(equalTo: image.leadingAnchor),
-            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            label.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             label.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
     
-    func configureHeaderView(view: UIView, headerView: UIView) {
-        view.addSubview(headerView)
-        headerView.translatesAutoresizingMaskIntoConstraints = false
+    func configureHeaderContainer(view: UIView, container: UIView) {
+        view.addSubview(container)
+        container.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            headerView.heightAnchor.constraint(equalToConstant: 180)
+            container.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            container.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            container.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            container.heightAnchor.constraint(equalToConstant: 180)
         ])
     }
+    
+    func setNextContainer(view: UIView, container: UIView, topContainer: UIView) {
+        view.addSubview(container)
+        container.backgroundColor = .systemTeal
+        container.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            container.topAnchor.constraint(equalTo: topContainer.bottomAnchor, constant: padding),
+            container.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            container.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            container.heightAnchor.constraint(equalToConstant: 140)
+        ])
+    }
+
 }

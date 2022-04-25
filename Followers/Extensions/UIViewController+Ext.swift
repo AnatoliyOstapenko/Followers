@@ -37,7 +37,6 @@ extension UIViewController {
             activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
         activityIndicator.startAnimating()
-        
     }
     
     func spinnerDeactivated() {
