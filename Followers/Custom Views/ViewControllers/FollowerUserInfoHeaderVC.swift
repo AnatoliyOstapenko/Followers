@@ -27,7 +27,6 @@ class FollowerUserInfoHeaderVC: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()

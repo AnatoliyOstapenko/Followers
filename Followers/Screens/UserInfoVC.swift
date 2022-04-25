@@ -25,13 +25,23 @@ class UserInfoVC: UIViewController {
         view.configureHeaderView(view: view, headerView: headerView)
     }
     
+    func headerChildVC(childVC: UIViewController, containerView: UIView) {
+        addChild(childVC)
+        containerView.addSubview(childVC.view)
+        childVC.view.frame = containerView.bounds
+        childVC.didMove(toParent: self)
+    }
+    
     private func downloadUser() {
         NetworkManager.shared.getUserInfo(with: username ?? "") { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let user):
-                print(user.bio ?? "")
+                DispatchQueue.main.async {
+                    self.headerChildVC(childVC: FollowerUserInfoHeaderVC(user: user), containerView: self.headerView)
+                }
             case .failure(let error):
-                self?.presentAlert(title: "Error", message: error.rawValue, buttonTitle: "OK")
+                self.presentAlert(title: "Error", message: error.rawValue, buttonTitle: "OK")
             }
         }
     }

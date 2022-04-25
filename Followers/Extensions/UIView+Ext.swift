@@ -235,7 +235,6 @@ extension UIView {
     
     func configureHeaderView(view: UIView, headerView: UIView) {
         view.addSubview(headerView)
-        headerView.backgroundColor = .systemPink
         headerView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
