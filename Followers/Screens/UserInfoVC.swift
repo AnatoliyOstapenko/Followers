@@ -9,6 +9,7 @@ import UIKit
 
 class UserInfoVC: UIViewController {
     
+    var headerView = UIView()
     var username: String?
 
     override func viewDidLoad() {
@@ -21,6 +22,7 @@ class UserInfoVC: UIViewController {
     private func configureUI() {
         view.backgroundColor = .systemBackground
         title = username?.uppercased() ?? ""
+        view.configureHeaderView(view: view, headerView: headerView)
     }
     
     private func downloadUser() {

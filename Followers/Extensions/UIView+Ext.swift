@@ -232,4 +232,17 @@ extension UIView {
             label.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
+    
+    func configureHeaderView(view: UIView, headerView: UIView) {
+        view.addSubview(headerView)
+        headerView.backgroundColor = .systemPink
+        headerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            headerView.heightAnchor.constraint(equalToConstant: 180)
+        ])
+    }
 }
