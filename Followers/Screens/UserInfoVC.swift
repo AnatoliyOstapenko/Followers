@@ -28,7 +28,7 @@ class UserInfoVC: UIViewController {
         view.setNextContainer(view: view, container: bottomContainer, topContainer: middleContainer)
     }
     
-    func headerChildVC(childVC: UIViewController, containerView: UIView) {
+    func addChildVC(childVC: UIViewController, containerView: UIView) {
         addChild(childVC)
         containerView.addSubview(childVC.view)
         childVC.view.frame = containerView.bounds
@@ -41,7 +41,9 @@ class UserInfoVC: UIViewController {
             switch result {
             case .success(let user):
                 DispatchQueue.main.async {
-                    self.headerChildVC(childVC: FollowerUserInfoHeaderVC(user: user), containerView: self.headerContainer)
+                    self.addChildVC(childVC: FollowerUserInfoHeaderVC(user: user), containerView: self.headerContainer)
+                    self.addChildVC(childVC: FollowerMiddleItemVC(user: user), containerView: self.middleContainer)
+                    self.addChildVC(childVC: FollowerBottomItemVC(user: user), containerView: self.bottomContainer)
                 }
             case .failure(let error):
                 self.presentAlert(title: "Error", message: error.rawValue, buttonTitle: "OK")

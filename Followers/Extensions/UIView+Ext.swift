@@ -232,6 +232,7 @@ extension UIView {
             label.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
+    // MARK: - UserInfoVC Layout
     
     func configureHeaderContainer(view: UIView, container: UIView) {
         view.addSubview(container)
@@ -247,7 +248,6 @@ extension UIView {
     
     func setNextContainer(view: UIView, container: UIView, topContainer: UIView) {
         view.addSubview(container)
-        container.backgroundColor = .systemTeal
         container.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -257,7 +257,6 @@ extension UIView {
             container.heightAnchor.constraint(equalToConstant: 140)
         ])
     }
-    
     // MARK: - FollowerItemView Layout
     
     func setSymbolImageView(view: UIView, imageView: UIImageView) {
@@ -298,8 +297,6 @@ extension UIView {
     // MARK: - FollowerItemVC Layout
     
     func setStackView(view: UIView, stack: UIStackView, leftView: UIView, rightView: UIView) {
-        view.backgroundColor = .secondarySystemBackground
-        view.layer.cornerRadius = 18
         view.addSubview(stack)
         stack.axis = .horizontal
         stack.distribution = .equalSpacing
