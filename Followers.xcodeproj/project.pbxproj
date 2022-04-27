@@ -22,6 +22,8 @@
 		BC46CC252815A1A2007098AA /* FollowerUserInfoHeaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CC242815A1A2007098AA /* FollowerUserInfoHeaderVC.swift */; };
 		BC46CC272815A244007098AA /* FollowerSecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CC262815A244007098AA /* FollowerSecondaryTitleLabel.swift */; };
 		BC46CC292815CC62007098AA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CC282815CC62007098AA /* Constants.swift */; };
+		BC46CC2B2816F5A2007098AA /* FollowerItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CC2A2816F5A2007098AA /* FollowerItemView.swift */; };
+		BC46CC2D28198392007098AA /* FollowerItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CC2C28198392007098AA /* FollowerItemVC.swift */; };
 		BC8E280A28071ABB00736DE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E280928071ABB00736DE3 /* AppDelegate.swift */; };
 		BC8E280C28071ABB00736DE3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E280B28071ABB00736DE3 /* SceneDelegate.swift */; };
 		BC8E281328071ABE00736DE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC8E281228071ABE00736DE3 /* Assets.xcassets */; };
@@ -50,6 +52,8 @@
 		BC46CC242815A1A2007098AA /* FollowerUserInfoHeaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerUserInfoHeaderVC.swift; sourceTree = "<group>"; };
 		BC46CC262815A244007098AA /* FollowerSecondaryTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerSecondaryTitleLabel.swift; sourceTree = "<group>"; };
 		BC46CC282815CC62007098AA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BC46CC2A2816F5A2007098AA /* FollowerItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerItemView.swift; sourceTree = "<group>"; };
+		BC46CC2C28198392007098AA /* FollowerItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerItemVC.swift; sourceTree = "<group>"; };
 		BC8E280628071ABB00736DE3 /* Followers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Followers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC8E280928071ABB00736DE3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC8E280B28071ABB00736DE3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -192,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				BC46CBF42811A456007098AA /* FollowerEmptyStateView.swift */,
+				BC46CC2A2816F5A2007098AA /* FollowerItemView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -201,6 +206,7 @@
 			children = (
 				BC46CBC9280B03F5007098AA /* FollowersAlertViewController.swift */,
 				BC46CC242815A1A2007098AA /* FollowerUserInfoHeaderVC.swift */,
+				BC46CC2C28198392007098AA /* FollowerItemVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -319,6 +325,7 @@
 				BC46CBE2280D9C52007098AA /* User.swift in Sources */,
 				BC8E280A28071ABB00736DE3 /* AppDelegate.swift in Sources */,
 				BC46CBEA280EFACF007098AA /* FollowerCollectionViewCell.swift in Sources */,
+				BC46CC2B2816F5A2007098AA /* FollowerItemView.swift in Sources */,
 				BC46CBD2280C8059007098AA /* Follower.swift in Sources */,
 				BC46CBCA280B03F5007098AA /* FollowersAlertViewController.swift in Sources */,
 				BC8E282628075E4900736DE3 /* UIView+Ext.swift in Sources */,
@@ -326,6 +333,7 @@
 				BC46CBE7280DEF8D007098AA /* FollowerError.swift in Sources */,
 				BC46CBE4280DC526007098AA /* NetworkManager.swift in Sources */,
 				BC8E280C28071ABB00736DE3 /* SceneDelegate.swift in Sources */,
+				BC46CC2D28198392007098AA /* FollowerItemVC.swift in Sources */,
 				BC46CBC6280AFDC8007098AA /* FollowersTitleLabel.swift in Sources */,
 				BC46CC252815A1A2007098AA /* FollowerUserInfoHeaderVC.swift in Sources */,
 				BC46CBF928146E81007098AA /* UserInfoVC.swift in Sources */,

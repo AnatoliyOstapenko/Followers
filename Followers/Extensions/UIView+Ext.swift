@@ -257,5 +257,73 @@ extension UIView {
             container.heightAnchor.constraint(equalToConstant: 140)
         ])
     }
+    
+    // MARK: - FollowerItemView Layout
+    
+    func setSymbolImageView(view: UIView, imageView: UIImageView) {
+        view.addSubview(imageView)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
+        imageView.tintColor = .label
+        
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: view.topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            imageView.heightAnchor.constraint(equalToConstant: 20),
+            imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor)
+        ])
+    }
+    
+    func setTitleLabel(view: UIView, label: UILabel, symbol: UIImageView) {
+        view.addSubview(label)
+        
+        NSLayoutConstraint.activate([
+            label.centerYAnchor.constraint(equalTo: symbol.centerYAnchor),
+            label.leadingAnchor.constraint(equalTo: symbol.trailingAnchor, constant: paddingDozen),
+            label.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            label.heightAnchor.constraint(equalToConstant: 18)
+        ])
+    }
+    
+    func setCountLabel(view: UIView, label: UILabel, symbol: UIImageView) {
+        view.addSubview(label)
+        
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: symbol.bottomAnchor, constant: 4),
+            label.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            label.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            label.heightAnchor.constraint(equalToConstant: 18)
+        ])
+    }
+    // MARK: - FollowerItemVC Layout
+    
+    func setStackView(view: UIView, stack: UIStackView, leftView: UIView, rightView: UIView) {
+        view.backgroundColor = .secondarySystemBackground
+        view.layer.cornerRadius = 18
+        view.addSubview(stack)
+        stack.axis = .horizontal
+        stack.distribution = .equalSpacing
+        stack.addArrangedSubview(leftView)
+        stack.addArrangedSubview(rightView)
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            stack.topAnchor.constraint(equalTo: view.topAnchor, constant: padding),
+            stack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            stack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            stack.heightAnchor.constraint(equalToConstant: 50)
+        ])
+    }
+    
+    func setActionButton(view: UIView, button: UIButton) {
+        view.addSubview(button)
+        
+        NSLayoutConstraint.activate([
+            button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -padding),
+            button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            button.heightAnchor.constraint(equalToConstant: 44)
+        ])
+    }
 
 }
