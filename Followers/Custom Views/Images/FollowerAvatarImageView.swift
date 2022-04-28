@@ -10,7 +10,6 @@ import UIKit
 class FollowerAvatarImageView: UIImageView {
     
     let cache = NetworkManager.shared.cache
-    let placeholderImage = UIImage(named: "logoPositive")
     let placeholderString = "logoPositive"
 
     override init(frame: CGRect) {
@@ -25,7 +24,7 @@ class FollowerAvatarImageView: UIImageView {
     private func configure() {
         layer.cornerRadius = 10
         clipsToBounds = true
-        image = placeholderImage
+        image = UIImage(named: placeholderString)
         translatesAutoresizingMaskIntoConstraints = false 
     }
     
