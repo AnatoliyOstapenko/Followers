@@ -12,6 +12,7 @@ class UserInfoVC: UIViewController {
     var headerContainer = UIView()
     var middleContainer = UIView()
     var bottomContainer = UIView()
+    var dateLabel = FollowersBodyLabel(textAligment: .center)
     var username: String?
 
     override func viewDidLoad() {
@@ -26,6 +27,7 @@ class UserInfoVC: UIViewController {
         view.configureHeaderContainer(view: view, container: headerContainer)
         view.setNextContainer(view: view, container: middleContainer, topContainer: headerContainer)
         view.setNextContainer(view: view, container: bottomContainer, topContainer: middleContainer)
+        view.setDateLabel(view: view, label: dateLabel, topContainer: bottomContainer)
     }
     
     func addChildVC(childVC: UIViewController, containerView: UIView) {
@@ -44,6 +46,7 @@ class UserInfoVC: UIViewController {
                     self.addChildVC(childVC: FollowerUserInfoHeaderVC(user: user), containerView: self.headerContainer)
                     self.addChildVC(childVC: FollowerMiddleItemVC(user: user), containerView: self.middleContainer)
                     self.addChildVC(childVC: FollowerBottomItemVC(user: user), containerView: self.bottomContainer)
+                    self.dateLabel.text = user.createdAt
                 }
             case .failure(let error):
                 self.presentAlert(title: "Error", message: error.rawValue, buttonTitle: "OK")

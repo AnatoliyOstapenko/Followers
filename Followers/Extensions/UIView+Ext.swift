@@ -257,6 +257,18 @@ extension UIView {
             container.heightAnchor.constraint(equalToConstant: 140)
         ])
     }
+    
+    func setDateLabel(view: UIView, label: UILabel, topContainer: UIView) {
+        view.addSubview(label)
+        
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: topContainer.bottomAnchor, constant: padding),
+            label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            label.heightAnchor.constraint(equalToConstant: 18)
+        ])
+        
+    }
     // MARK: - FollowerItemView Layout
     
     func setSymbolImageView(view: UIView, imageView: UIImageView) {
