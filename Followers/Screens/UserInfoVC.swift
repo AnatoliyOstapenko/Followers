@@ -46,7 +46,7 @@ class UserInfoVC: UIViewController {
                     self.addChildVC(childVC: FollowerUserInfoHeaderVC(user: user), containerView: self.headerContainer)
                     self.addChildVC(childVC: FollowerMiddleItemVC(user: user), containerView: self.middleContainer)
                     self.addChildVC(childVC: FollowerBottomItemVC(user: user), containerView: self.bottomContainer)
-                    self.dateLabel.text = user.createdAt
+                    self.dateLabel.text = user.createdAt.convertToDisplay()
                 }
             case .failure(let error):
                 self.presentAlert(title: "Error", message: error.rawValue, buttonTitle: "OK")
