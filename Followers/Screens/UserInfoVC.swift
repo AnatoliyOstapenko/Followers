@@ -87,12 +87,18 @@ class UserInfoVC: UIViewController {
 // MARK: - UserInfo Delegate
 
 extension UserInfoVC: UserInfoDelegate {
+    
     func didTapGitHubProfile(user: User) {
-        guard let url = URL(string: user.htmlURL) else { return }
+        guard let url = URL(string: user.htmlURL) else {
+            presentAlert(title: "Warning", message: "URL attached to this user is invalid 🦄", buttonTitle: "Ok")
+            return }
+        let safariVC = SFSafariViewController(url: url)
+        safariVC.preferredControlTintColor = .systemRed
+        present(safariVC, animated: true, completion: nil)
         
     }
     
     func didTapGetFollowers(user: User) {
-        
+        print("")
     }
 }

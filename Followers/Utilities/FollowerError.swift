@@ -13,4 +13,5 @@ enum FollowerError: String, Error {
     case invalidRequest = "Invalid response form server, please try again 🦄"
     case invalidData = "Data received from the server was invalid, please try again 🦄"
     case noFollowers = "There are no followers at all, please chek another one 🦄"
+    case invalidUser = "URL attached to this user is invalid 🦄"
 }
