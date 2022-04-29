@@ -15,6 +15,7 @@ class FollowerItemVC: UIViewController {
     let actionButton = FollowersButton()
     
     var user: User?
+    weak var delegate: UserInfoDelegate?
     
     init(user: User) {
         super.init(nibName: nil, bundle: nil)
@@ -24,7 +25,14 @@ class FollowerItemVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        configureActionButton()
     }
+    
+    private func configureActionButton() {
+        actionButton.addTarget(self, action: #selector(actionButtonPressed), for: .touchUpInside)
+    }
+    
+    @objc func actionButtonPressed() {} // add generic action method to be overridden in subclasses
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

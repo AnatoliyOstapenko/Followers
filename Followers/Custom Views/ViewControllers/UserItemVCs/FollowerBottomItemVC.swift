@@ -19,4 +19,9 @@ class FollowerBottomItemVC: FollowerItemVC {
         rightItemView.set(itemInfoType: .following, count: user?.following ?? 0)
         actionButton.set(backgroundColor: .systemCyan, title: "Get Followers")
     }
+    
+    override func actionButtonPressed() {
+        guard let user = user else { return }
+        delegate?.didTapGetFollowers(user: user)
+    }
 }

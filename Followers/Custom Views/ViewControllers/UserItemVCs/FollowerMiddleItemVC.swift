@@ -19,4 +19,9 @@ class FollowerMiddleItemVC: FollowerItemVC {
         rightItemView.set(itemInfoType: .gists, count: user?.publicRepos ?? 0)
         actionButton.set(backgroundColor: .systemPurple, title: "GitHub Profile")
     }
+    
+    override func actionButtonPressed() {
+        guard let user = user else { return }
+        delegate?.didTapGitHubProfile(user: user)
+    }
 }

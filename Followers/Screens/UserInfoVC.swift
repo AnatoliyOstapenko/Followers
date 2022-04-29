@@ -6,6 +6,12 @@
 //
 
 import UIKit
+import SafariServices
+
+protocol UserInfoDelegate: AnyObject {
+    func didTapGitHubProfile(user: User)
+    func didTapGetFollowers(user: User)
+}
 
 class UserInfoVC: UIViewController {
     
@@ -42,16 +48,23 @@ class UserInfoVC: UIViewController {
             guard let self = self else { return }
             switch result {
             case .success(let user):
-                DispatchQueue.main.async {
-                    self.addChildVC(childVC: FollowerUserInfoHeaderVC(user: user), containerView: self.headerContainer)
-                    self.addChildVC(childVC: FollowerMiddleItemVC(user: user), containerView: self.middleContainer)
-                    self.addChildVC(childVC: FollowerBottomItemVC(user: user), containerView: self.bottomContainer)
-                    self.dateLabel.text = user.createdAt.convertToDisplay()
-                }
+                DispatchQueue.main.async { self.successUser(user: user) }
             case .failure(let error):
                 self.presentAlert(title: "Error", message: error.rawValue, buttonTitle: "OK")
             }
         }
+    }
+    
+    private func successUser(user: User) {
+        let middleItemVC = FollowerMiddleItemVC(user: user)
+        middleItemVC.delegate = self
+        let bottomItemVC = FollowerBottomItemVC(user: user)
+        bottomItemVC.delegate = self
+        
+        self.addChildVC(childVC: FollowerUserInfoHeaderVC(user: user), containerView: self.headerContainer)
+        self.addChildVC(childVC: middleItemVC, containerView: self.middleContainer)
+        self.addChildVC(childVC: bottomItemVC, containerView: self.bottomContainer)
+        self.dateLabel.text = user.createdAt.convertToDisplay()
     }
     
     private func setBarButtons() {
@@ -69,4 +82,17 @@ class UserInfoVC: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+}
+
+// MARK: - UserInfo Delegate
+
+extension UserInfoVC: UserInfoDelegate {
+    func didTapGitHubProfile(user: User) {
+        guard let url = URL(string: user.htmlURL) else { return }
+        
+    }
+    
+    func didTapGetFollowers(user: User) {
+        
+    }
 }
