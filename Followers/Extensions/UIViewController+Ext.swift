@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 fileprivate var containerView: UIView! // Add fileprivate to use it in extension
 
@@ -50,5 +51,11 @@ extension UIViewController {
         let emptyStateView = FollowerEmptyStateView(message: .noFollowers)
         emptyStateView.frame = view.bounds
         view.addSubview(emptyStateView)
+    }
+    
+    func presentSafariVC(url: URL) {
+        let safariVC = SFSafariViewController(url: url)
+        safariVC.preferredControlTintColor = .systemRed
+        present(safariVC, animated: true, completion: nil)
     }
 }
