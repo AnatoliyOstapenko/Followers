@@ -91,7 +91,8 @@ extension UserInfoVC: UserInfoDelegate {
         // Open Safari page related to user htmlURL
         guard let url = URL(string: user.htmlURL) else {
             presentAlert(title: "Invalid URL", message: "URL attached to this user is invalid 🦄", buttonTitle: "Ok")
-            return }
+            return
+        }
         presentSafariVC(url: url)
     }
     

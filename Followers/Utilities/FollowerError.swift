@@ -14,4 +14,6 @@ enum FollowerError: String, Error {
     case invalidData = "Data received from the server was invalid, please try again 🦄"
     case noFollowers = "There are no followers at all, please chek another one 🦄"
     case invalidUser = "URL attached to this user is invalid 🦄"
+    case unableToFavorite = "Unable to add to favorites, please try again 🦄"
+    case userAlreadyExist = "Unable to add to favorites, user is already exist 🦄"
 }

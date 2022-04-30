@@ -7,9 +7,7 @@
 
 import UIKit
 
-enum ItemInfoType {
-    case repos, gists, followers, following
-}
+enum ItemInfoType { case repos, gists, followers, following }
 
 class FollowerItemView: UIView {
     
