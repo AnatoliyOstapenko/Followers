@@ -23,7 +23,8 @@ enum PersistenceManager {
                     guard !array.contains(favorite) else {
                         completion(.userAlreadyExist)
                         return }
-                    array.append(favorite)
+                    let addedItem: () = array.append(favorite)
+                    print("\(addedItem) was added")
                     completion(.userAdded) // FIXME: Delete this line if it never appears
                 case .remove:
                     let removedItem: () = array.removeAll { $0.login == favorite.login }

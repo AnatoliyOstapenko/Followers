@@ -53,8 +53,16 @@ class FollowerListViewController: UIViewController {
         NetworkManager.shared.getUserInfo(with: username ?? "") { [weak self] result in
             guard let self = self else { return }
             switch result {
-            case .success(let favorite):
-                
+            case .success(let user):
+                let favorite = Follower(login: user.login, avatar: user.avatar)
+                PersistenceManager.updateWith(favorite: favorite, actionType: .add) { [weak self] error in
+                    guard let self = self else { return }
+                    guard let error = error else {
+                        self.presentAlert(title: "Success", message: error?.rawValue ?? "", buttonTitle: "OK")
+                        return
+                    }
+                    self.presentAlert(title: "Failure", message: error.rawValue, buttonTitle: "OK")
+                }
                 DispatchQueue.main.async {
                     self.spinnerDeactivated()
                 }
