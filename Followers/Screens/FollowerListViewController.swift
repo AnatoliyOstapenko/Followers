@@ -49,7 +49,19 @@ class FollowerListViewController: UIViewController {
     }
     
     @objc func addButtonPressed() {
-        print("Ok")
+        spinnerActivated()
+        NetworkManager.shared.getUserInfo(with: username ?? "") { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let favorite):
+                
+                DispatchQueue.main.async {
+                    self.spinnerDeactivated()
+                }
+            case .failure(let error):
+                self.presentAlert(title: "Unable to add", message: error.rawValue, buttonTitle: "OK")
+            }
+        }
     }
     
     func setFollowers(username: String, page: Int) {

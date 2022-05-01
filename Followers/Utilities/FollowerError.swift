@@ -16,4 +16,6 @@ enum FollowerError: String, Error {
     case invalidUser = "URL attached to this user is invalid 🦄"
     case unableToFavorite = "Unable to add to favorites, please try again 🦄"
     case userAlreadyExist = "Unable to add to favorites, user is already exist 🦄"
+    case userAdded = "User successfully added 📥" // FIXME: Don't forget to delete
+    case userRemoved = "User successfully removed 📤" // FIXME: Don't forget to delete
 }
