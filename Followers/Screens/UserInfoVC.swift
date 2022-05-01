@@ -44,11 +44,15 @@ class UserInfoVC: UIViewController {
     }
     
     private func downloadUser() {
+        spinnerActivated()
         NetworkManager.shared.getUserInfo(with: username ?? "") { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let user):
-                DispatchQueue.main.async { self.successUser(user: user) }
+                DispatchQueue.main.async {
+                    self.successUser(user: user)
+                    self.spinnerDeactivated()
+                }
             case .failure(let error):
                 self.presentAlert(title: "Error", message: error.rawValue, buttonTitle: "OK")
             }

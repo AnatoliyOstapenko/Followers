@@ -25,7 +25,8 @@ enum PersistenceManager {
                         return }
                     array.append(favorite)
                 case .remove:
-                    array.removeAll { $0.login == favorite.login }
+                    let removedItem: () = array.removeAll { $0.login == favorite.login }
+                    print("\(removedItem) was removed")
                 }
                 completion(save(favorites: array))
                 
