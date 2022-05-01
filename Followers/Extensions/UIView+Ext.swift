@@ -334,5 +334,29 @@ extension UIView {
             button.heightAnchor.constraint(equalToConstant: 44)
         ])
     }
+    
+    // MARK: - FavoriteTableViewCell Layout
+
+    func setFavoriteAvatar(view: UIView, imageView: UIImageView) {
+        view.addSubview(imageView)
+        
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: paddingDozen),
+            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            imageView.heightAnchor.constraint(equalToConstant: 90),
+            imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor)
+        ])
+    }
+    
+    func setFavoriteUsername(view: UIView, label: UILabel, imageView: UIImageView) {
+        view.addSubview(label)
+        
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: imageView.topAnchor),
+            label.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: padding),
+            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            label.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -padding)
+        ])
+    }
 
 }

@@ -1,0 +1,34 @@
+//
+//  FavoriteTableViewCell.swift
+//  Followers
+//
+//  Created by AnatoliiOstapenko on 01.05.2022.
+//
+
+import UIKit
+
+class FavoriteTableViewCell: UITableViewCell {
+    
+    static let reuseID = "FavoriteTableViewCellID"
+    let avatarImageView = FollowerAvatarImageView(frame: .zero)
+    let usernameLabel = FollowersTitleLabel(textAligment: .left, fontSize: 28)
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        configure()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func configure() {
+        contentView.setFavoriteAvatar(view: contentView, imageView: avatarImageView)
+        contentView.setFavoriteUsername(view: contentView, label: usernameLabel, imageView: avatarImageView)
+    }
+    
+    func updateFavoriteCellUI(favorites: Follower) {
+        avatarImageView.downloadImage(urlString: favorites.avatar)
+        usernameLabel.text = favorites.login
+    }
+}
