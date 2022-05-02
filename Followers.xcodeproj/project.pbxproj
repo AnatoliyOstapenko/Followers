@@ -30,6 +30,7 @@
 		BC46CC5F281AF1AC007098AA /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CC5E281AF1AC007098AA /* String+Ext.swift */; };
 		BC46CC61281D9386007098AA /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CC60281D9385007098AA /* PersistenceManager.swift */; };
 		BC46CC63281ECD63007098AA /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CC62281ECD63007098AA /* FavoriteTableViewCell.swift */; };
+		BC46CC65282034DD007098AA /* FollowerTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CC64282034DD007098AA /* FollowerTabBarController.swift */; };
 		BC8E280A28071ABB00736DE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E280928071ABB00736DE3 /* AppDelegate.swift */; };
 		BC8E280C28071ABB00736DE3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E280B28071ABB00736DE3 /* SceneDelegate.swift */; };
 		BC8E281328071ABE00736DE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC8E281228071ABE00736DE3 /* Assets.xcassets */; };
@@ -66,6 +67,7 @@
 		BC46CC5E281AF1AC007098AA /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		BC46CC60281D9385007098AA /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		BC46CC62281ECD63007098AA /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
+		BC46CC64282034DD007098AA /* FollowerTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerTabBarController.swift; sourceTree = "<group>"; };
 		BC8E280628071ABB00736DE3 /* Followers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Followers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC8E280928071ABB00736DE3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC8E280B28071ABB00736DE3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				BC46CBF1280EFD28007098AA /* Images */,
 				BC46CBF72814209A007098AA /* ViewControllers */,
 				BC46CBF62811A461007098AA /* Views */,
+				BC46CC66282034E3007098AA /* TabBarControllers */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -235,6 +238,14 @@
 				BC46CC302819AF75007098AA /* FollowerBottomItemVC.swift */,
 			);
 			path = UserItemVCs;
+			sourceTree = "<group>";
+		};
+		BC46CC66282034E3007098AA /* TabBarControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BC46CC64282034DD007098AA /* FollowerTabBarController.swift */,
+			);
+			path = TabBarControllers;
 			sourceTree = "<group>";
 		};
 		BC8E27FD28071ABB00736DE3 = {
@@ -357,6 +368,7 @@
 				BC46CC2B2816F5A2007098AA /* FollowerItemView.swift in Sources */,
 				BC46CBD2280C8059007098AA /* Follower.swift in Sources */,
 				BC46CBCA280B03F5007098AA /* FollowersAlertViewController.swift in Sources */,
+				BC46CC65282034DD007098AA /* FollowerTabBarController.swift in Sources */,
 				BC8E282628075E4900736DE3 /* UIView+Ext.swift in Sources */,
 				BC8E28202807253D00736DE3 /* FavoritesListViewController.swift in Sources */,
 				BC46CC5D281AF1A0007098AA /* Date+Ext.swift in Sources */,
