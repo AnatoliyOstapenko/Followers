@@ -341,9 +341,9 @@ extension UIView {
         view.addSubview(imageView)
         
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: paddingDozen),
-            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-            imageView.heightAnchor.constraint(equalToConstant: 90),
+            imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: paddingDozen),
+            imageView.heightAnchor.constraint(equalToConstant: 60),
             imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor)
         ])
     }

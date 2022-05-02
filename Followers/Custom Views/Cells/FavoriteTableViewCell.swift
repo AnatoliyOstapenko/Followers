@@ -11,7 +11,7 @@ class FavoriteTableViewCell: UITableViewCell {
     
     static let reuseID = "FavoriteTableViewCellID"
     let avatarImageView = FollowerAvatarImageView(frame: .zero)
-    let usernameLabel = FollowersTitleLabel(textAligment: .left, fontSize: 28)
+    let usernameLabel = FollowersTitleLabel(textAligment: .left, fontSize: 26)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -23,6 +23,7 @@ class FavoriteTableViewCell: UITableViewCell {
     }
     
     private func configure() {
+        accessoryType = .disclosureIndicator
         contentView.setFavoriteAvatar(view: contentView, imageView: avatarImageView)
         contentView.setFavoriteUsername(view: contentView, label: usernameLabel, imageView: avatarImageView)
     }
