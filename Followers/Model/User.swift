@@ -18,7 +18,7 @@ struct User: Codable {
     var htmlURL: String
     var following: Int
     var followers: Int
-    var createdAt: String
+    var createdAt: Date // It was changed from String to Date
     
     enum CodingKeys: String, CodingKey {
         case login, name, location, bio, followers, following

@@ -12,7 +12,7 @@ protocol UserInfoDelegate: AnyObject {
     func didTapGetFollowers(user: User)
 }
 
-class UserInfoVC: UIViewController {
+class UserInfoVC: FollowerDataLoadingVC {
     
     var headerContainer = UIView()
     var middleContainer = UIView()
@@ -68,7 +68,7 @@ class UserInfoVC: UIViewController {
         self.addChildVC(childVC: FollowerUserInfoHeaderVC(user: user), containerView: self.headerContainer)
         self.addChildVC(childVC: middleItemVC, containerView: self.middleContainer)
         self.addChildVC(childVC: bottomItemVC, containerView: self.bottomContainer)
-        self.dateLabel.text = user.createdAt.convertToDisplay()
+        self.dateLabel.text = "GitHub since \(user.createdAt.convertToString())"
     }
     
     private func setBarButtons() {

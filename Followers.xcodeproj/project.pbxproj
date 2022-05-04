@@ -27,10 +27,10 @@
 		BC46CC2F2819A68B007098AA /* FollowerMiddleItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CC2E2819A68B007098AA /* FollowerMiddleItemVC.swift */; };
 		BC46CC312819AF75007098AA /* FollowerBottomItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CC302819AF75007098AA /* FollowerBottomItemVC.swift */; };
 		BC46CC5D281AF1A0007098AA /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CC5C281AF1A0007098AA /* Date+Ext.swift */; };
-		BC46CC5F281AF1AC007098AA /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CC5E281AF1AC007098AA /* String+Ext.swift */; };
 		BC46CC61281D9386007098AA /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CC60281D9385007098AA /* PersistenceManager.swift */; };
 		BC46CC63281ECD63007098AA /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CC62281ECD63007098AA /* FavoriteTableViewCell.swift */; };
 		BC46CC65282034DD007098AA /* FollowerTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CC64282034DD007098AA /* FollowerTabBarController.swift */; };
+		BC46CC952822F3A8007098AA /* FollowerDataLoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC46CC942822F3A8007098AA /* FollowerDataLoadingVC.swift */; };
 		BC8E280A28071ABB00736DE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E280928071ABB00736DE3 /* AppDelegate.swift */; };
 		BC8E280C28071ABB00736DE3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E280B28071ABB00736DE3 /* SceneDelegate.swift */; };
 		BC8E281328071ABE00736DE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC8E281228071ABE00736DE3 /* Assets.xcassets */; };
@@ -64,10 +64,10 @@
 		BC46CC2E2819A68B007098AA /* FollowerMiddleItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerMiddleItemVC.swift; sourceTree = "<group>"; };
 		BC46CC302819AF75007098AA /* FollowerBottomItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerBottomItemVC.swift; sourceTree = "<group>"; };
 		BC46CC5C281AF1A0007098AA /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
-		BC46CC5E281AF1AC007098AA /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		BC46CC60281D9385007098AA /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		BC46CC62281ECD63007098AA /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		BC46CC64282034DD007098AA /* FollowerTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerTabBarController.swift; sourceTree = "<group>"; };
+		BC46CC942822F3A8007098AA /* FollowerDataLoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerDataLoadingVC.swift; sourceTree = "<group>"; };
 		BC8E280628071ABB00736DE3 /* Followers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Followers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC8E280928071ABB00736DE3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC8E280B28071ABB00736DE3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,7 +99,6 @@
 				BC8E282528075E4900736DE3 /* UIView+Ext.swift */,
 				BC46CBCB280B440E007098AA /* UIViewController+Ext.swift */,
 				BC46CC5C281AF1A0007098AA /* Date+Ext.swift */,
-				BC46CC5E281AF1AC007098AA /* String+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -225,6 +224,7 @@
 			children = (
 				BC46CBC9280B03F5007098AA /* FollowersAlertViewController.swift */,
 				BC46CC242815A1A2007098AA /* FollowerUserInfoHeaderVC.swift */,
+				BC46CC942822F3A8007098AA /* FollowerDataLoadingVC.swift */,
 				BC46CC322819BAA4007098AA /* UserItemVCs */,
 			);
 			path = ViewControllers;
@@ -352,7 +352,6 @@
 				BC46CBF52811A456007098AA /* FollowerEmptyStateView.swift in Sources */,
 				BC8E28352809BE9000736DE3 /* FollowerListViewController.swift in Sources */,
 				BC8E281E280724C200736DE3 /* SearchViewController.swift in Sources */,
-				BC46CC5F281AF1AC007098AA /* String+Ext.swift in Sources */,
 				BC46CBCC280B440E007098AA /* UIViewController+Ext.swift in Sources */,
 				BC46CC2F2819A68B007098AA /* FollowerMiddleItemVC.swift in Sources */,
 				BC46CC272815A244007098AA /* FollowerSecondaryTitleLabel.swift in Sources */,
@@ -367,6 +366,7 @@
 				BC46CBEA280EFACF007098AA /* FollowerCollectionViewCell.swift in Sources */,
 				BC46CC2B2816F5A2007098AA /* FollowerItemView.swift in Sources */,
 				BC46CBD2280C8059007098AA /* Follower.swift in Sources */,
+				BC46CC952822F3A8007098AA /* FollowerDataLoadingVC.swift in Sources */,
 				BC46CBCA280B03F5007098AA /* FollowersAlertViewController.swift in Sources */,
 				BC46CC65282034DD007098AA /* FollowerTabBarController.swift in Sources */,
 				BC8E282628075E4900736DE3 /* UIView+Ext.swift in Sources */,

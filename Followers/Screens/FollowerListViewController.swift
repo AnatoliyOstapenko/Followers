@@ -11,7 +11,7 @@ protocol FollowerListVCDelegate: AnyObject {
     func didRequestFollowers(username: String)
 }
 
-class FollowerListViewController: UIViewController {
+class FollowerListViewController: FollowerDataLoadingVC {
     
     var username: String?
     var followers: [Follower] = []
@@ -59,21 +59,19 @@ class FollowerListViewController: UIViewController {
     }
     
     @objc func addButtonPressed() {
-        spinnerActivated()
-        NetworkManager.shared.getUserInfo(with: username ?? "") { [weak self] result in
+        NetworkManager.shared.getUserInfo(with: username ?? ImageNames.placeholder) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let user):
                 let favorite = Follower(login: user.login, avatar: user.avatar)
                 PersistenceManager.updateWith(favorite: favorite, actionType: .add) { [weak self] error in
-                    guard let self = self, let error = error else { return }
-                    self.presentAlert(title: "Success", message: error.rawValue, buttonTitle: "OK")
-                }
-                DispatchQueue.main.async {
-                    self.spinnerDeactivated()
+                    guard let self = self, let error = error else {
+                        self?.presentAlert(title: "Success", message: "User added to favorites", buttonTitle: "OK")
+                        return }
+                    self.presentAlert(title: "Failure", message: error.rawValue, buttonTitle: "OK")
                 }
             case .failure(let error):
-                self.presentAlert(title: "Unable to add", message: error.rawValue, buttonTitle: "OK")
+                self.presentAlert(title: "Warning", message: error.rawValue, buttonTitle: "OK")
             }
         }
     }

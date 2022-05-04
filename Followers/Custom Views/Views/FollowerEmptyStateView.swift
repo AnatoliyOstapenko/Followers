@@ -21,10 +21,9 @@ class FollowerEmptyStateView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(message: FollowerError) {
-        super.init(frame: .zero)
+    convenience init(message: FollowerError) {
+        self.init(frame: .zero)
         messageLabel.text = message.rawValue
-        configure()
     }
     
     private func configure() {

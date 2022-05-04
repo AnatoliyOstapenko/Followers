@@ -64,11 +64,38 @@ class NetworkManager {
                 return
             }
             do {
-                let user = try JSONDecoder().decode(User.self, from: data)
+                // It's necessary if you changed type of property from String to Date in Model:
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .iso8601
+                
+                let user = try decoder.decode(User.self, from: data)
                 completion(.success(user))
             } catch {
                 completion(.failure(.unableToComplete))
             }
+        }
+        task.resume()
+    }
+    
+    func downloadImage(url: String, completion: @escaping (UIImage?) -> Void) {
+        //cache staff: if images already been downloaded, set images from cache
+        let cacheKey = NSString(string: url)
+        if let image = cache.object(forKey: cacheKey) {
+            completion(image)
+            return
+        }
+        guard let url = URL(string: url) else {
+            completion(nil)
+            return
+        }
+        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+            guard error == nil, let response = response as? HTTPURLResponse, response.statusCode == 200,
+                let data = data, let image = UIImage(data: data) else {
+                completion(nil)
+                return
+            }
+            self?.cache.setObject(image, forKey: cacheKey) // add images to cache
+            completion(image)
         }
         task.resume()
     }

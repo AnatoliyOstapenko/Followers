@@ -24,6 +24,10 @@ enum Images {
     static let colorlessLogo = UIImage(named: "symbolPositive")
 }
 
+enum ImageNames {
+    static let placeholder = "symbolPositive"
+}
+
 // MARK: - Adaptation for any screens
 
 enum ScreenSize {

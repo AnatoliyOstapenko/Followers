@@ -10,7 +10,7 @@ import UIKit
 class FavoriteTableViewCell: UITableViewCell {
     
     static let reuseID = "FavoriteTableViewCellID"
-    let avatarImageView = FollowerAvatarImageView(frame: .zero)
+    var avatarImageView = FollowerAvatarImageView(frame: .zero)
     let usernameLabel = FollowersTitleLabel(textAligment: .left, fontSize: 26)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -29,7 +29,9 @@ class FavoriteTableViewCell: UITableViewCell {
     }
     
     func updateFavoriteCellUI(favorites: Follower) {
-        avatarImageView.downloadImage(urlString: favorites.avatar)
         usernameLabel.text = favorites.login
+        NetworkManager.shared.downloadImage(url: favorites.avatar) { [weak self] image in
+            DispatchQueue.main.async {  self?.avatarImageView.image = image }
+        }
     }
 }

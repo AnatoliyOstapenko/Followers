@@ -24,7 +24,6 @@ enum PersistenceManager {
                         completion(.userAlreadyExist)
                         return }
                     array.append(favorite)
-                    completion(.userAdded) // add error - user add message for future use
                 case .remove:
                     array.removeAll { $0.login == favorite.login }
                 }
