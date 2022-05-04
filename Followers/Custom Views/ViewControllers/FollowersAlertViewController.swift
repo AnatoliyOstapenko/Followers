@@ -35,7 +35,7 @@ class FollowersAlertViewController: UIViewController {
     }
     
     private func setUI() {
-        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.75)
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.75)
         view.setAlertContainer(view: view, container: alertContainer)
         view.configureTitleLabel(container: alertContainer, label: titleLabel, alert: alertTitle)
         setActionButton()

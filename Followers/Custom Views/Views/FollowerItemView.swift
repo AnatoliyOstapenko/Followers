@@ -14,6 +14,7 @@ class FollowerItemView: UIView {
     let symbolImageView = UIImageView()
     let titleLabel = FollowersTitleLabel(textAligment: .left, fontSize: 14)
     let countLabel = FollowersTitleLabel(textAligment: .center, fontSize: 14)
+    let testLabel = FollowersBodyLabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)

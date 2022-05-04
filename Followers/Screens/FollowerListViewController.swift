@@ -23,6 +23,16 @@ class FollowerListViewController: UIViewController {
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource <Section, Follower>!
     
+    init(username: String?) {
+        super.init(nibName: nil, bundle: nil)
+        self.username = username
+        title = username
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureVC()
@@ -57,7 +67,7 @@ class FollowerListViewController: UIViewController {
                 let favorite = Follower(login: user.login, avatar: user.avatar)
                 PersistenceManager.updateWith(favorite: favorite, actionType: .add) { [weak self] error in
                     guard let self = self, let error = error else { return }
-                    self.presentAlert(title: "ADD", message: error.rawValue, buttonTitle: "OK")
+                    self.presentAlert(title: "Success", message: error.rawValue, buttonTitle: "OK")
                 }
                 DispatchQueue.main.async {
                     self.spinnerDeactivated()

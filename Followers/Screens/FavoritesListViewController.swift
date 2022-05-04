@@ -16,6 +16,7 @@ class FavoritesListViewController: UIViewController {
         super.viewDidLoad()
         setTableView()
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setFavorites()
@@ -78,9 +79,7 @@ extension FavoritesListViewController: UITableViewDelegate {
     }
     // transition to followers (FollowerListVC) of chosen user
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let followerVC = FollowerListViewController()
-        followerVC.username = favorites[indexPath.row].login
-        followerVC.title = favorites[indexPath.row].login
+        let followerVC = FollowerListViewController(username: favorites[indexPath.row].login)
         navigationController?.pushViewController(followerVC, animated: true)
     }
     // remove user from favorites

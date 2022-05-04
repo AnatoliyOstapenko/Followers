@@ -19,6 +19,11 @@ enum Keys {
     static let favorites = "favorites"
 }
 
+enum Images {
+    static let colorLogo = UIImage(named: "logoPositive")
+    static let colorlessLogo = UIImage(named: "symbolPositive")
+}
+
 // MARK: - Adaptation for any screens
 
 enum ScreenSize {

@@ -12,6 +12,7 @@ class SearchViewController: UIViewController {
     let logoImageView = UIImageView()
     let usernameTextField = FollowersTextField()
     let callToActionButton = FollowersButton(backgroundColor: .systemRed, title: "Get Followers")
+    
     // Computed property to get bool and to check a textfield is empty
     var isUsernameEntered: Bool { return !(usernameTextField.text?.isEmpty ?? false) }
 
@@ -25,6 +26,7 @@ class SearchViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
+        usernameTextField.text = ""
     }
     
     func setUIElements() {
@@ -49,10 +51,9 @@ class SearchViewController: UIViewController {
         guard isUsernameEntered else {
             presentAlert(title: "Warning", message: "Please, type a username.    Don't leave this field empty 🦄", buttonTitle: "Done")
             return }
-        
-        let followerListVC = FollowerListViewController()
-        followerListVC.username = usernameTextField.text
-        followerListVC.title = usernameTextField.text?.uppercased()
+  
+        usernameTextField.resignFirstResponder() // hide keyboard if user come back to search screen
+        let followerListVC = FollowerListViewController(username: usernameTextField.text)
         navigationController?.pushViewController(followerListVC, animated: true)
     }
 }

@@ -13,13 +13,22 @@ fileprivate var paddingDozen: CGFloat = 12
 
 extension UIView {
     
+    // MARK: - SearchViewController Layout
+    
     func configureLogoImageView(view: UIView, imageView: UIImageView) {
         view.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "logoPositive")
+        imageView.image = Images.colorLogo
+        // 
+        let logoImageViewTopConstraint: NSLayoutConstraint = {
+            let topConstraintConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 20 : 80
+            let constraint = imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topConstraintConstant)
+            return constraint
+        }()
+        logoImageViewTopConstraint.isActive = true
+        
         
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 90),
             imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             imageView.heightAnchor.constraint(equalToConstant: 150),
             imageView.widthAnchor.constraint(equalToConstant: 150)
@@ -47,6 +56,8 @@ extension UIView {
             button.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
+    
+ // MARK: - FollowersAlertViewController Layout
     
     func setAlertContainer(view: UIView, container: UIView) {
         view.addSubview(container)
@@ -101,7 +112,7 @@ extension UIView {
             message.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -padding)
         ])
     }
-    
+ // end
     func configureFollowerCell(view: UIView, image: UIImageView, label: UILabel) {
         view.addSubview(image)
         view.addSubview(label)
@@ -153,7 +164,7 @@ extension UIView {
     
     func setLogoImageView(view: UIView, imageView: UIImageView, label: UILabel) {
         view.addSubview(imageView)
-        imageView.image = UIImage(named: "symbolPositive")
+        imageView.image = Images.colorlessLogo
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
