@@ -7,7 +7,22 @@
 
 import UIKit
 
+protocol MidleItemDelegate: AnyObject {
+    func didTapGitHubProfile(user: User)
+}
+
 class FollowerMiddleItemVC: FollowerItemVC {
+    
+    weak var middleDelegate: MidleItemDelegate?
+    
+    init(user: User, middleDelegate: MidleItemDelegate) {
+        super.init(user: user)
+        self.middleDelegate = middleDelegate
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +37,6 @@ class FollowerMiddleItemVC: FollowerItemVC {
     
     override func actionButtonPressed() {
         guard let user = user else { return }
-        delegate?.didTapGitHubProfile(user: user)
+        middleDelegate?.didTapGitHubProfile(user: user)
     }
 }

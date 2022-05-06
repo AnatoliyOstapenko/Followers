@@ -184,6 +184,8 @@ extension UIView {
         ])
     }
     
+  // MARK: - FollowerUserInfoHeaderVC Layout
+    
     func setAvatarImageView(view: UIView, image: UIImageView) {
         view.addSubview(image)
         
@@ -249,7 +251,7 @@ extension UIView {
             label.topAnchor.constraint(equalTo: image.bottomAnchor, constant: paddingDozen),
             label.leadingAnchor.constraint(equalTo: image.leadingAnchor),
             label.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            label.heightAnchor.constraint(equalToConstant: 60)
+            label.heightAnchor.constraint(equalToConstant: 90)
         ])
     }
     // MARK: - UserInfoVC Layout
@@ -262,7 +264,7 @@ extension UIView {
             container.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             container.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
             container.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
-            container.heightAnchor.constraint(equalToConstant: 180)
+            container.heightAnchor.constraint(equalToConstant: 210)
         ])
     }
     
@@ -285,7 +287,7 @@ extension UIView {
             label.topAnchor.constraint(equalTo: topContainer.bottomAnchor, constant: padding),
             label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
             label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
-            label.heightAnchor.constraint(equalToConstant: 18)
+            label.heightAnchor.constraint(equalToConstant: 30)
         ])
         
     }

@@ -15,7 +15,6 @@ class FollowerItemVC: UIViewController {
     let actionButton = FollowersButton()
     
     var user: User?
-    weak var delegate: UserInfoDelegate?
     
     init(user: User) {
         super.init(nibName: nil, bundle: nil)

@@ -8,8 +8,7 @@
 import UIKit
 
 protocol UserInfoDelegate: AnyObject {
-    func didTapGitHubProfile(user: User)
-    func didTapGetFollowers(user: User)
+    func didRequestFollowers(username: String)
 }
 
 class UserInfoVC: FollowerDataLoadingVC {
@@ -19,7 +18,7 @@ class UserInfoVC: FollowerDataLoadingVC {
     var bottomContainer = UIView()
     var dateLabel = FollowersBodyLabel(textAligment: .center)
     var username: String?
-    weak var delegate: FollowerListVCDelegate?
+    weak var userInfodelegate: UserInfoDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,14 +59,9 @@ class UserInfoVC: FollowerDataLoadingVC {
     }
     
     private func successUser(user: User) {
-        let middleItemVC = FollowerMiddleItemVC(user: user)
-        middleItemVC.delegate = self
-        let bottomItemVC = FollowerBottomItemVC(user: user)
-        bottomItemVC.delegate = self
-        
-        self.addChildVC(childVC: FollowerUserInfoHeaderVC(user: user), containerView: self.headerContainer)
-        self.addChildVC(childVC: middleItemVC, containerView: self.middleContainer)
-        self.addChildVC(childVC: bottomItemVC, containerView: self.bottomContainer)
+        self.addChildVC(childVC: FollowerUserInfoHeaderVC(user: user), containerView: headerContainer)
+        self.addChildVC(childVC: FollowerMiddleItemVC(user: user, middleDelegate: self), containerView: middleContainer)
+        self.addChildVC(childVC: FollowerBottomItemVC(user: user, bottomDelegate: self), containerView: bottomContainer)
         self.dateLabel.text = "GitHub since \(user.createdAt.convertToString())"
     }
     
@@ -79,7 +73,7 @@ class UserInfoVC: FollowerDataLoadingVC {
     }
     
     @objc func done(sender: Any) {
-        
+        dismiss(animated: true, completion: nil) // TODO: - to being changed further
     }
     
     @objc func cancel() {
@@ -87,9 +81,8 @@ class UserInfoVC: FollowerDataLoadingVC {
     }
 }
 
-// MARK: - UserInfo Delegate
-
-extension UserInfoVC: UserInfoDelegate {
+// MARK: - MidleItemDelegate
+extension UserInfoVC: MidleItemDelegate {
     
     func didTapGitHubProfile(user: User) {
         // Open Safari page related to user htmlURL
@@ -99,13 +92,16 @@ extension UserInfoVC: UserInfoDelegate {
         }
         presentSafariVC(url: url)
     }
-    
+}
+
+// MARK: - BottomItemDelegate
+extension UserInfoVC: BottomItemDelegate {
     func didTapGetFollowers(user: User) {
         guard user.followers != 0 else {
             presentAlert(title: "No Followers", message: "This user has no followers 🦄", buttonTitle: "OK")
             return
         }
-        delegate?.didRequestFollowers(username: user.login)
+        userInfodelegate?.didRequestFollowers(username: user.login)
         dismiss(animated: true, completion: nil)
     }
 }

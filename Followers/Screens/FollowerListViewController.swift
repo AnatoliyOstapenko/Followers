@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol FollowerListVCDelegate: AnyObject {
-    func didRequestFollowers(username: String)
-}
-
 class FollowerListViewController: FollowerDataLoadingVC {
     
     var username: String?
@@ -160,7 +156,7 @@ extension FollowerListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let activeArray = isSearching ? filtredFollowers : followers
         let userInfoVC = UserInfoVC()
-        userInfoVC.delegate = self
+        userInfoVC.userInfodelegate = self
         userInfoVC.username = activeArray[indexPath.item].login
         let navController = UINavigationController(rootViewController: userInfoVC)
         present(navController, animated: true, completion: nil)
@@ -184,11 +180,11 @@ extension FollowerListViewController: UISearchResultsUpdating {
 
 // MARK: - FollowerListVCDelegate
 
-extension FollowerListViewController: FollowerListVCDelegate {
+extension FollowerListViewController: UserInfoDelegate {
     func didRequestFollowers(username: String) {
         // get followers for that user
         self.username = username
-        self.page = 1
+        page = 1
         title = username
         followers.removeAll()
         filtredFollowers.removeAll()

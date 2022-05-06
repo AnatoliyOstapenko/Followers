@@ -25,8 +25,9 @@ class FollowersBodyLabel: UILabel {
     
     private func configure() {
         textColor = .secondaryLabel
-        adjustsFontSizeToFitWidth = true
         font = .preferredFont(forTextStyle: .body)
+        adjustsFontSizeToFitWidth = true
+        adjustsFontForContentSizeCategory = true
         minimumScaleFactor = 0.75
         lineBreakMode = .byWordWrapping
         translatesAutoresizingMaskIntoConstraints = false
