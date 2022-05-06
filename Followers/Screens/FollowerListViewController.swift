@@ -19,6 +19,7 @@ class FollowerListViewController: FollowerDataLoadingVC {
     var page = 1
     var hasMoreFollowers = true
     var isSearching = false
+    var isLoadingMoreFollowers = false
     
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource <Section, Follower>!
@@ -96,6 +97,7 @@ class FollowerListViewController: FollowerDataLoadingVC {
             case .failure(let error):
                 self.presentAlert(title: "Warning", message: error.rawValue, buttonTitle: "ok")
             }
+            self.isLoadingMoreFollowers = false
         }
     }
     
@@ -146,9 +148,10 @@ extension FollowerListViewController: UICollectionViewDelegate {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
         let height = scrollView.frame.size.height
+        
         // Check if user scroll down below last bound of screen:
         if offsetY > contentHeight - height {
-            guard hasMoreFollowers == true else { return }
+            guard hasMoreFollowers, !isLoadingMoreFollowers else { return }
             page += 1
             setFollowers(username: username ?? "", page: page)
         }
@@ -189,7 +192,7 @@ extension FollowerListViewController: FollowerListVCDelegate {
         title = username
         followers.removeAll()
         filtredFollowers.removeAll()
-        collectionView.scrollsToTop = true
+        collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
         setFollowers(username: username, page: page)
         
     }
