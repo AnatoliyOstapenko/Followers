@@ -78,7 +78,6 @@ class FollowerListViewController: FollowerDataLoadingVC {
     
     func setFollowers(username: String, page: Int) {
         spinnerActivated()
-        // Invoke singletone
         NetworkManager.shared.getFollowers(with: username, page: page) { [weak self] result in
             guard let self = self else { return }
             switch result {
@@ -138,10 +137,9 @@ class FollowerListViewController: FollowerDataLoadingVC {
 
 extension FollowerListViewController {
     // Enum hashable by default
-    enum Section {
-        case main
-    }
+    enum Section { case main }
 }
+
 // MARK: - UICollectionView Delegate
 
 extension FollowerListViewController: UICollectionViewDelegate {

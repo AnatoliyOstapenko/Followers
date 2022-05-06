@@ -19,7 +19,8 @@ extension UIView {
         view.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = Images.colorLogo
-        // 
+        
+        // Create custom constraint for logo image which depends on device type
         let logoImageViewTopConstraint: NSLayoutConstraint = {
             let topConstraintConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 20 : 80
             let constraint = imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topConstraintConstant)
@@ -149,13 +150,21 @@ extension UIView {
         return flowLayout
     }
     
+    // MARK: - FollowerEmptyStateView Layout
+    
     func setMessageLabel(view: UIView, label: UILabel) {
         view.addSubview(label)
-        label.numberOfLines = 2
+        label.numberOfLines = 3
         label.textColor = .secondaryLabel
         
+        let topLabelConstraint: NSLayoutConstraint = {
+            let constant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? -100 : -120
+            let constraint = label.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: constant)
+            return constraint
+        }()
+        topLabelConstraint.isActive = true
+        
         NSLayoutConstraint.activate([
-            label.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -150),
             label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             label.heightAnchor.constraint(equalToConstant: 200)
@@ -171,7 +180,7 @@ extension UIView {
             imageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
             imageView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
             imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            imageView.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 40)
+            imageView.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 30)
         ])
     }
     
