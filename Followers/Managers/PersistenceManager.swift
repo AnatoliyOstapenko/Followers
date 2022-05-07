@@ -16,18 +16,17 @@ enum PersistenceManager {
     static func updateWith(favorite: Follower, actionType: PersistanceActionType, completion: @escaping (FollowerError?) -> Void) {
         retrieveFavorites { result in
             switch result {
-            case .success(let favorites):
-                var array = favorites
+            case .success(var favorites):
                 switch actionType {
                 case .add:
-                    guard !array.contains(favorite) else {
+                    guard !favorites.contains(favorite) else {
                         completion(.userAlreadyExist)
                         return }
-                    array.append(favorite)
+                    favorites.append(favorite)
                 case .remove:
-                    array.removeAll { $0.login == favorite.login }
+                    favorites.removeAll { $0.login == favorite.login }
                 }
-                completion(save(favorites: array))
+                completion(save(favorites: favorites))
                 
             case .failure(let error):
                 completion(error)
@@ -38,7 +37,7 @@ enum PersistenceManager {
     static func retrieveFavorites(competion: @escaping (Result<[Follower], FollowerError>) -> Void) {
         guard let data = defaults.object(forKey: Keys.favorites) as? Data else {
             competion(.success([])) // return empty array in case no data
-            competion(.failure(.invalidData))
+            competion(.failure(.noFavorites))
             return
         }
         do {

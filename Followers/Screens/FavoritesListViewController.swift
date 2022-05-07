@@ -19,6 +19,7 @@ class FavoritesListViewController: FollowerDataLoadingVC {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        spinnerActivated()
         setFavorites()
     }
     
@@ -32,7 +33,7 @@ class FavoritesListViewController: FollowerDataLoadingVC {
     }
     
     private func setFavorites() {
-        spinnerActivated()
+        spinnerDeactivated()
         PersistenceManager.retrieveFavorites { [weak self] result in
             guard let self = self else { return }
             switch result {
@@ -42,22 +43,18 @@ class FavoritesListViewController: FollowerDataLoadingVC {
                 } else {
                     self.favorites = favorites
                     DispatchQueue.main.async {
-                        self.spinnerDeactivated()
                         self.favoriteTablewView.reloadData()
                         self.view.bringSubviewToFront(self.favoriteTablewView) // TODO: - Read about it later...
                     }
                 }
-                
             case .failure(let error):
                 self.presentAlert(title: "Failure", message: error.rawValue, buttonTitle: "OK")
             }
         }
     }
-
 }
 
 // MARK: - UITableView DataSource
-
 extension FavoritesListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return favorites.count
@@ -72,7 +69,6 @@ extension FavoritesListViewController: UITableViewDataSource {
     
 }
 // MARK: - UITableView DataSource
-
 extension FavoritesListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
@@ -87,10 +83,11 @@ extension FavoritesListViewController: UITableViewDelegate {
         guard editingStyle == .delete else { return }
         
         PersistenceManager.updateWith(favorite: favorites[indexPath.row], actionType: .remove) { [weak self] error in
-            guard let error = error else { return }
+            guard let error = error else {
+                self?.favorites.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .left)
+                return }
             self?.presentAlert(title: "REMOVING", message: error.rawValue, buttonTitle: "OK")
         }
-        favorites.remove(at: indexPath.row)
-        tableView.deleteRows(at: [indexPath], with: .left)
     }
 }

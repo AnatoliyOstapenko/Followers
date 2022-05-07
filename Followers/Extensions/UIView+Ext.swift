@@ -255,7 +255,6 @@ extension UIView {
         ])
     }
     // MARK: - UserInfoVC Layout
-    
     func configureHeaderContainer(view: UIView, container: UIView) {
         view.addSubview(container)
         container.translatesAutoresizingMaskIntoConstraints = false
@@ -284,13 +283,38 @@ extension UIView {
         view.addSubview(label)
         
         NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: topContainer.bottomAnchor, constant: padding),
+            label.topAnchor.constraint(equalTo: topContainer.bottomAnchor, constant: 8),
             label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
             label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
             label.heightAnchor.constraint(equalToConstant: 30)
         ])
-        
     }
+
+    func setScrollView(view: UIView, subView: UIView) {
+        view.addSubview(subView)
+        subView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            subView.topAnchor.constraint(equalTo: view.topAnchor),
+            subView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            subView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            subView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+    }
+    
+    func setContentView(view: UIView, subView: UIView) {
+        view.addSubview(subView)
+        subView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            subView.topAnchor.constraint(equalTo: view.topAnchor),
+            subView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            subView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            subView.heightAnchor.constraint(equalToConstant: 600),
+            
+        ])
+    }
+    
     // MARK: - FollowerItemView Layout
     
     func setSymbolImageView(view: UIView, imageView: UIImageView) {

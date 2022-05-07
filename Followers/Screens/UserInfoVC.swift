@@ -7,11 +7,12 @@
 
 import UIKit
 
-protocol UserInfoDelegate: AnyObject {
-    func didRequestFollowers(username: String)
-}
-
+protocol UserInfoDelegate: AnyObject { func didRequestFollowers(username: String) }
+    
 class UserInfoVC: FollowerDataLoadingVC {
+    
+    var scrollView = UIScrollView()
+    var contentView = UIView()
     
     var headerContainer = UIView()
     var middleContainer = UIView()
@@ -24,15 +25,18 @@ class UserInfoVC: FollowerDataLoadingVC {
         super.viewDidLoad()
         configureUI()
         setBarButtons()
+        spinnerActivated()
         downloadUser()
     }
-    
+
     private func configureUI() {
         view.backgroundColor = .systemBackground
-        view.configureHeaderContainer(view: view, container: headerContainer)
-        view.setNextContainer(view: view, container: middleContainer, topContainer: headerContainer)
-        view.setNextContainer(view: view, container: bottomContainer, topContainer: middleContainer)
-        view.setDateLabel(view: view, label: dateLabel, topContainer: bottomContainer)
+        scrollView.setScrollView(view: view, subView: scrollView)
+        contentView.setContentView(view: scrollView, subView: contentView)
+        headerContainer.configureHeaderContainer(view: contentView, container: headerContainer)
+        middleContainer.setNextContainer(view: contentView, container: middleContainer, topContainer: headerContainer)
+        bottomContainer.setNextContainer(view: contentView, container: bottomContainer, topContainer: middleContainer)
+        dateLabel.setDateLabel(view: contentView, label: dateLabel, topContainer: bottomContainer)
     }
     
     func addChildVC(childVC: UIViewController, containerView: UIView) {
@@ -43,14 +47,13 @@ class UserInfoVC: FollowerDataLoadingVC {
     }
     
     private func downloadUser() {
-        spinnerActivated()
+        spinnerDeactivated()
         NetworkManager.shared.getUserInfo(with: username ?? "") { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let user):
                 DispatchQueue.main.async {
                     self.successUser(user: user)
-                    self.spinnerDeactivated()
                 }
             case .failure(let error):
                 self.presentAlert(title: "Error", message: error.rawValue, buttonTitle: "OK")
