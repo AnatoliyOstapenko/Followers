@@ -39,13 +39,7 @@ class FollowerUserInfoHeaderVC: UIViewController {
         locationLabel.text = user?.location ?? "No location"
         bioLabel.text = user?.bio ?? "No bio"
         locationImageView.image = SFSymbols.location
-        setImage()
-    }
-    
-    private func setImage() {
-        NetworkManager.shared.downloadImage(url: user?.avatar ?? ImageNames.placeholder) { [weak self] image in
-            DispatchQueue.main.async { self?.avatarImageView.image = image }
-        }
+        avatarImageView.setImage(avatar: user?.avatar)
     }
 
     private func configure() {

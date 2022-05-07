@@ -310,7 +310,7 @@ extension UIView {
             subView.topAnchor.constraint(equalTo: view.topAnchor),
             subView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             subView.widthAnchor.constraint(equalTo: view.widthAnchor),
-            subView.heightAnchor.constraint(equalToConstant: 600),
+            subView.heightAnchor.constraint(equalToConstant: 600), // increase the constant to being used on more old devices
             
         ])
     }

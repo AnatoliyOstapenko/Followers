@@ -24,4 +24,10 @@ class FollowerAvatarImageView: UIImageView {
         image = Images.colorlessLogo
         translatesAutoresizingMaskIntoConstraints = false 
     }
+    
+    func setImage(avatar: String?) {
+        NetworkManager.shared.downloadImage(url: avatar ?? ImageNames.placeholder) { [weak self] image in
+            DispatchQueue.main.async { self?.image = image }
+        }
+    }
 }
