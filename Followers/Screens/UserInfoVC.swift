@@ -65,7 +65,7 @@ class UserInfoVC: FollowerDataLoadingVC {
         self.addChildVC(childVC: FollowerUserInfoHeaderVC(user: user), containerView: headerContainer)
         self.addChildVC(childVC: FollowerMiddleItemVC(user: user, middleDelegate: self), containerView: middleContainer)
         self.addChildVC(childVC: FollowerBottomItemVC(user: user, bottomDelegate: self), containerView: bottomContainer)
-        self.dateLabel.text = "GitHub since \(user.createdAt.convertToString())"
+        self.dateLabel.text = "GitHub since \(user.createdAt.convertedToString)"
     }
     
     private func setBarButtons() {

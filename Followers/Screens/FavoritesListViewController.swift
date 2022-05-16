@@ -38,17 +38,21 @@ class FavoritesListViewController: FollowerDataLoadingVC {
             guard let self = self else { return }
             switch result {
             case .success(let favorites):
-                if favorites.isEmpty {
-                    self.showEmptyStateView(view: self.view, message: .noFavorites)
-                } else {
-                    self.favorites = favorites
-                    DispatchQueue.main.async {
-                        self.favoriteTablewView.reloadData()
-                        self.view.bringSubviewToFront(self.favoriteTablewView) // TODO: - Read about it later...
-                    }
-                }
+                self.retrieveFavorites(favorites: favorites)
             case .failure(let error):
                 self.presentAlert(title: "Failure", message: error.rawValue, buttonTitle: "OK")
+            }
+        }
+    }
+    
+    private func retrieveFavorites(favorites: [Follower]) {
+        if favorites.isEmpty {
+            self.showEmptyStateView(view: self.view, message: .noFavorites)
+        } else {
+            self.favorites = favorites
+            DispatchQueue.main.async {
+                self.favoriteTablewView.reloadData()
+                self.view.bringSubviewToFront(self.favoriteTablewView) // TODO: - Read about it later...
             }
         }
     }

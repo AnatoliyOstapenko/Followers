@@ -60,16 +60,20 @@ class FollowerListViewController: FollowerDataLoadingVC {
             guard let self = self else { return }
             switch result {
             case .success(let user):
-                let favorite = Follower(login: user.login, avatar: user.avatar)
-                PersistenceManager.updateWith(favorite: favorite, actionType: .add) { [weak self] error in
-                    guard let self = self, let error = error else {
-                        self?.presentAlert(title: "Success", message: "User added to favorites", buttonTitle: "OK")
-                        return }
-                    self.presentAlert(title: "Failure", message: error.rawValue, buttonTitle: "OK")
-                }
+                self.getUser(user: user)
             case .failure(let error):
                 self.presentAlert(title: "Warning", message: error.rawValue, buttonTitle: "OK")
             }
+        }
+    }
+    
+    private func getUser(user: User) {
+        let favorite = Follower(login: user.login, avatar: user.avatar)
+        PersistenceManager.updateWith(favorite: favorite, actionType: .add) { [weak self] error in
+            guard let self = self, let error = error else {
+                self?.presentAlert(title: "Success", message: "User added to favorites", buttonTitle: "OK")
+                return }
+            self.presentAlert(title: "Failure", message: error.rawValue, buttonTitle: "OK")
         }
     }
     
@@ -79,22 +83,25 @@ class FollowerListViewController: FollowerDataLoadingVC {
             guard let self = self else { return }
             switch result {
             case .success(let followers):
-                
-                if followers.isEmpty {
-                    DispatchQueue.main.async {
-                        self.showEmptyStateView(view: self.view, message: .noFollowers)
-                    }
-                }
-                
-                if followers.count < 100 { self.hasMoreFollowers = false }
-                self.spinnerDeactivated()
-                self.followers.append(contentsOf: followers) // to see first icon on the next page
-                self.updateData(followers: self.followers)
+                self.getFollowers(followers: followers)
             case .failure(let error):
                 self.presentAlert(title: "Warning", message: error.rawValue, buttonTitle: "ok")
             }
             self.isLoadingMoreFollowers = false
         }
+    }
+    
+    private func getFollowers(followers: [Follower]) {
+        if followers.isEmpty {
+            DispatchQueue.main.async {
+                self.showEmptyStateView(view: self.view, message: .noFollowers)
+            }
+        }
+        
+        if followers.count < 100 { self.hasMoreFollowers = false }
+        self.spinnerDeactivated()
+        self.followers.append(contentsOf: followers) // to see first icon on the next page
+        self.updateData(followers: self.followers)
     }
     
     func setSearchController() {
@@ -133,8 +140,7 @@ class FollowerListViewController: FollowerDataLoadingVC {
 // MARK: - Section
 
 extension FollowerListViewController {
-    // Enum hashable by default
-    enum Section { case main }
+    enum Section { case main } // Enum hashable by default
 }
 
 // MARK: - UICollectionView Delegate

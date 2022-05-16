@@ -19,17 +19,10 @@ extension UIView {
         view.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = Images.colorLogo
-        
-        // Create custom constraint for logo image which depends on device type
-        let logoImageViewTopConstraint: NSLayoutConstraint = {
-            let topConstraintConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 20 : 80
-            let constraint = imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topConstraintConstant)
-            return constraint
-        }()
-        logoImageViewTopConstraint.isActive = true
-        
+        let topConstraintConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 20 : 80
         
         NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topConstraintConstant),
             imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             imageView.heightAnchor.constraint(equalToConstant: 150),
             imageView.widthAnchor.constraint(equalToConstant: 150)
@@ -156,15 +149,10 @@ extension UIView {
         view.addSubview(label)
         label.numberOfLines = 3
         label.textColor = .secondaryLabel
-        
-        let topLabelConstraint: NSLayoutConstraint = {
-            let constant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? -100 : -120
-            let constraint = label.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: constant)
-            return constraint
-        }()
-        topLabelConstraint.isActive = true
+        let constant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? -100 : -120
         
         NSLayoutConstraint.activate([
+            label.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: constant),
             label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             label.heightAnchor.constraint(equalToConstant: 200)
