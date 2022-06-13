@@ -10,7 +10,6 @@ import UIKit
 class FollowerDataLoadingVC: UIViewController {
     
     var containerView: UIView!
-    
 
     func spinnerActivated() {
         containerView = UIView(frame: view.bounds)

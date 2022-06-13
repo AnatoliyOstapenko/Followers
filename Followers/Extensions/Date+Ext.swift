@@ -8,15 +8,6 @@
 import Foundation
 
 extension Date {
-    
-//    func convertToString() -> String {
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.locale = Locale(identifier: "en_GB")
-//        dateFormatter.timeZone = .current
-//        dateFormatter.setLocalizedDateFormatFromTemplate("MMMM yyyy")
-//        return dateFormatter.string(from: self)
-//    }
-    // Add computed property instead of method above
     var convertedToString: String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_GB")

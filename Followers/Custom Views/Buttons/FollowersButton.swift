@@ -17,7 +17,7 @@ class FollowersButton: UIButton {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    // Create init to reuse button with differ title and color
+    // Create convenience init to reuse button with differ title and color
     convenience init(backgroundColor: UIColor, title: String) {
         self.init(frame: .zero)
         self.backgroundColor = backgroundColor

@@ -20,12 +20,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = FollowerTabBarController()
         window?.makeKeyAndVisible()
         
-        configureNavBar()
+//        configureNavBar()
     }
     
-    func configureNavBar() {
-        UINavigationBar.appearance().tintColor = .systemRed
-    }
+//    func configureNavBar() {
+//        UINavigationBar.appearance().tintColor = .systemRed
+//    }
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
