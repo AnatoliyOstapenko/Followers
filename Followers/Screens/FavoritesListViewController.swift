@@ -72,7 +72,7 @@ extension FavoritesListViewController: UITableViewDataSource {
     
     
 }
-// MARK: - UITableView DataSource
+// MARK: - UITableView Delegate
 extension FavoritesListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80

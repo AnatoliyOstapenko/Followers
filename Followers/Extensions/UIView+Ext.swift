@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
-fileprivate var padding: CGFloat = 20
-fileprivate var paddingDozen: CGFloat = 12
+private var padding: CGFloat = 20
+private var paddingDozen: CGFloat = 12
 
 extension UIView {
     

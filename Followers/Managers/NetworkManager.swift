@@ -12,7 +12,7 @@ class NetworkManager {
     let cache = NSCache <NSString, UIImage>() // Create cache
     // Create singleton:
     static let shared = NetworkManager()
-    init() {}
+    //init() {}
     
     let baseURL = "https://api.github.com/users/"
     func getFollowers(with username: String, page: Int, completion: @escaping (Result<[Follower], FollowerError>) -> Void) {
